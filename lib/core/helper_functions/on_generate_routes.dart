@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/splash/presentation/views/widgets/splash_view.dart';
+import '../../features/splash/presentation/views/splash_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
   switch (settings.name) {
