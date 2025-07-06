@@ -1,7 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_e_commerce_app/constants.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/widgets/custom_button.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
@@ -20,6 +22,12 @@ class OnBoardingViewBody extends StatelessWidget {
             color: AppColors.secondaryColor,
           ),
         ),
+        SizedBox(height: 29),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
+          child: CustomButton(text: 'ابدأ الان', onPressed: () {}),
+        ),
+        SizedBox(height: 43),
       ],
     );
   }
