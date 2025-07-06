@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
+import '../../../../../core/utils/app_text_styles.dart';
 import 'page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
@@ -17,17 +19,14 @@ class OnBoardingPageView extends StatelessWidget {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                "مرحبًا بك في",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              ),
-              const Text(
+              const Text("مرحبًا بك في  ", style: AppTextStyles.bold23),
+              Text(
                 "HUB",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: AppTextStyles.bold23.copyWith(color: AppColors.secondaryColor),
               ),
-              const Text(
+              Text(
                 "Fruit",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: AppTextStyles.bold23.copyWith(color: AppColors.primaryColor),
               ),
             ],
           ),
@@ -41,12 +40,7 @@ class OnBoardingPageView extends StatelessWidget {
           title: Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,
-            style: TextStyle(
-              color: const Color(0xFF0C0D0D),
-              fontSize: 23,
-              fontFamily: 'Cairo',
-              fontWeight: FontWeight.w700,
-            ),
+            style: AppTextStyles.bold28,
           ),
           subtitle:
               'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',

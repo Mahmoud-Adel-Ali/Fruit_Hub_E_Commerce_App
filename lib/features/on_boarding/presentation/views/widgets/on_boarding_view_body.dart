@@ -46,7 +46,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             activeColor: AppColors.primaryColor,
             color: currentPage == 1
                 ? AppColors.primaryColor
-                : AppColors.secondaryColor,
+                : AppColors.primaryColorWithOpacity,
           ),
         ),
         SizedBox(height: 29),
