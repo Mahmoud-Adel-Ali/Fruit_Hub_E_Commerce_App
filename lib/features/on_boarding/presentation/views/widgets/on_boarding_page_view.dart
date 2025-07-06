@@ -11,14 +11,27 @@ class OnBoardingPageView extends StatelessWidget {
     return PageView(
       children: [
         PageViewItem(
-          backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
-          image: Assets.imagesPageViewItem2Image,
-          title: const Text(
-            'ابحث وتسوق',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
+          image: Assets.imagesPageViewItem1Image,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                "مرحبًا بك في",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                "HUB",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const Text(
+                "Fruit",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           subtitle:
-              'نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية',
+              'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
         ),
       ],
     );
