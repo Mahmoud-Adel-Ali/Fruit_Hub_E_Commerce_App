@@ -4,11 +4,12 @@ import '../../../../../core/utils/app_images.dart';
 import 'page_view_item.dart';
 
 class OnBoardingPageView extends StatelessWidget {
-  const OnBoardingPageView({super.key});
-
+  const OnBoardingPageView({super.key, this.pageController});
+  final PageController? pageController;
   @override
   Widget build(BuildContext context) {
     return PageView(
+      controller: pageController,
       children: [
         PageViewItem(
           backgroundImage: Assets.imagesPageViewItem1BackgroundImage,
@@ -36,6 +37,7 @@ class OnBoardingPageView extends StatelessWidget {
         PageViewItem(
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           image: Assets.imagesPageViewItem2Image,
+          isLast: true,
           title: Text(
             'ابحث وتسوق',
             textAlign: TextAlign.center,

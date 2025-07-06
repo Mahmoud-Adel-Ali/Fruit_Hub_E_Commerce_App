@@ -8,11 +8,13 @@ class PageViewItem extends StatelessWidget {
     required this.subtitle,
     required this.image,
     required this.backgroundImage,
+    this.isLast = false,
   });
   final Widget title;
   final String subtitle;
   final String image;
   final String backgroundImage;
+  final bool isLast;
 
   @override
   Widget build(BuildContext context) {
@@ -32,16 +34,19 @@ class PageViewItem extends StatelessWidget {
                 right: 0,
                 child: SvgPicture.asset(image),
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'تخط',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                      decoration: TextDecoration.underline,
+              Visibility(
+                visible: !isLast,
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'تخط',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        decoration: TextDecoration.underline,
+                      ),
                     ),
                   ),
                 ),
