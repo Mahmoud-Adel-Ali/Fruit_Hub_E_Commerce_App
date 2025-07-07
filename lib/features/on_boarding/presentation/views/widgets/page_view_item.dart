@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../auth/presentation/views/login_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -41,7 +42,12 @@ class PageViewItem extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        LoginView.routeName,
+                      );
+                    },
                     child: const Text('تخط', style: AppTextStyles.regular13),
                   ),
                 ),

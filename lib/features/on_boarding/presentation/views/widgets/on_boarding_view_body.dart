@@ -4,6 +4,7 @@ import 'package:fruit_hub_e_commerce_app/constants.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../auth/presentation/views/login_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -57,7 +58,12 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
           maintainState: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
-            child: CustomButton(text: 'ابدأ الان', onPressed: () {}),
+            child: CustomButton(
+              text: 'ابدأ الان',
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, LoginView.routeName);
+              },
+            ),
           ),
         ),
         SizedBox(height: 43),
