@@ -2,6 +2,9 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_e_commerce_app/constants.dart';
 
+import '../../../../../core/databases/cach_helper.dart';
+import '../../../../../core/databases/cach_keys.dart';
+import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import '../../../../auth/presentation/views/login_view.dart';
@@ -61,6 +64,10 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             child: CustomButton(
               text: 'ابدأ الان',
               onPressed: () {
+                getit.get<CacheHelper>().setBool(
+                  CachKeys.isOnBoardingViewSeen,
+                  true,
+                );
                 Navigator.pushReplacementNamed(context, LoginView.routeName);
               },
             ),

@@ -1,6 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fruit_hub_e_commerce_app/features/auth/presentation/views/login_view.dart';
 
+import '../../../../../core/databases/cach_helper.dart';
+import '../../../../../core/databases/cach_keys.dart';
+import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../on_boarding/presentation/views/on_boarding_view.dart';
 
@@ -36,9 +42,13 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   }
 
   void executeNavigation() {
+    bool isOnBoardingViewSeen =
+        getit.get<CacheHelper>().getBool(CachKeys.isOnBoardingViewSeen) ??
+        false;
     Future.delayed(const Duration(seconds: 3), () {
-      // ignore: use_build_context_synchronously
-      Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      isOnBoardingViewSeen
+          ? Navigator.pushReplacementNamed(context, LoginView.routeName)
+          : Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
     });
   }
 }

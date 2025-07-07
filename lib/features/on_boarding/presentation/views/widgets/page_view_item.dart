@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../../../core/databases/cach_helper.dart';
+import '../../../../../core/databases/cach_keys.dart';
+import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../auth/presentation/views/login_view.dart';
 
@@ -43,6 +46,10 @@ class PageViewItem extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: TextButton(
                     onPressed: () {
+                      getit.get<CacheHelper>().setBool(
+                        CachKeys.isOnBoardingViewSeen,
+                        true,
+                      );
                       Navigator.pushReplacementNamed(
                         context,
                         LoginView.routeName,
