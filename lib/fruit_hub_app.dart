@@ -11,9 +11,10 @@ class FruitHubApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(fontFamily: 'Cairo'),
       title: 'Fruit Hub App',
-      locale:const Locale('ar'),
-      localizationsDelegates:const [
+      locale: const Locale('ar'),
+      localizationsDelegates: const [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
