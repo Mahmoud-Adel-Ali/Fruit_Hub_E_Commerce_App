@@ -17,17 +17,18 @@ class LoginForm extends StatelessWidget {
       children: [
         CustomEmailTextFormField(),
         CustomPasswordTextFormField(),
-        Container(
-          alignment: Alignment.centerLeft,
-          width: double.infinity,
-          child: CustomTextButton(
-            text: "نسيت كلمة المرور؟",
-            style: AppTextStyles.semiBold13.copyWith(
-              color: AppColors.lightPrimaryColor,
-              decoration: TextDecoration.underline,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            CustomTextButton(
+              text: "نسيت كلمة المرور؟",
+              style: AppTextStyles.semiBold13.copyWith(
+                color: AppColors.lightPrimaryColor,
+                decoration: TextDecoration.underline,
+              ),
+              onPressed: () {},
             ),
-            onPressed: () {},
-          ),
+          ],
         ),
         SizedBox(height: 16),
         CustomButton(text: "تسجيل الدخول", onPressed: () {}),
