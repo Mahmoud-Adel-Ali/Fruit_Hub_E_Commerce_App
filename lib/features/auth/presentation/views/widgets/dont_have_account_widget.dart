@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
+import '../signup_view.dart';
 
 class DontHaveAccountWidget extends StatelessWidget {
   const DontHaveAccountWidget({super.key});
@@ -12,7 +13,12 @@ class DontHaveAccountWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text('لَا تَمْلِكُ حِسَابًا؟', style: AppTextStyles.semiBold16),
-        CustomTextButton(text: "قُمْ بِإِنْشَاءِ حِسَابٍ", onPressed: () {}),
+        CustomTextButton(
+          text: "قُمْ بِإِنْشَاءِ حِسَابٍ",
+          onPressed: () {
+            Navigator.of(context).pushReplacementNamed(SignupView.routeName);
+          },
+        ),
       ],
     );
   }
