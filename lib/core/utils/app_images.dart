@@ -4,6 +4,12 @@ class Assets {
   
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
+  static const String imagesAppleIcon = "assets/images/apple_icon.svg";
+
+  static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
+
+  static const String imagesGoogleIcon = "assets/images/google_icon.svg";
+
   static const String imagesLogo = "assets/images/logo.svg";
 
   static const String imagesPageViewItem1BackgroundImage = "assets/images/page_view_item_1_background_image.svg";

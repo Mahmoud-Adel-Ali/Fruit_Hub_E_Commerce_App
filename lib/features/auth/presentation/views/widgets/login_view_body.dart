@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import 'dont_have_account_widget.dart';
 import 'login_form.dart';
+import 'login_social_section.dart';
 import 'or_divider.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -22,6 +23,7 @@ class LoginViewBody extends StatelessWidget {
             SizedBox(height: 33),
             OrDivider(),
             SizedBox(height: 16),
+            LoginSocialSection(),
           ],
         ),
       ),
