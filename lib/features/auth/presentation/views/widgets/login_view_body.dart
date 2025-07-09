@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import 'dont_have_account_widget.dart';
+import '../signup_view.dart';
 import 'login_form.dart';
+import 'login_signup_switch_row.dart';
 import 'login_social_section.dart';
 import 'or_divider.dart';
 
@@ -11,19 +12,28 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
         child: Column(
           children: [
-            SizedBox(height: 24),
-            LoginForm(),
-            SizedBox(height: 33),
-            DontHaveAccountWidget(),
-            SizedBox(height: 33),
-            OrDivider(),
-            SizedBox(height: 16),
-            LoginSocialSection(),
+            const SizedBox(height: 24),
+            const LoginForm(),
+            const SizedBox(height: 33),
+            LoginSignupSwitchRow(
+              questionText: 'لَا تَمْلِكُ حِسَابًا؟',
+              actionText: "قُمْ بِإِنْشَاءِ حِسَابٍ",
+              onPressed: () {
+                Navigator.of(
+                  context,
+                ).pushReplacementNamed(SignupView.routeName);
+              },
+            ),
+            const SizedBox(height: 33),
+            const OrDivider(),
+            const SizedBox(height: 16),
+            const LoginSocialSection(),
+            const SizedBox(height: 42),
           ],
         ),
       ),

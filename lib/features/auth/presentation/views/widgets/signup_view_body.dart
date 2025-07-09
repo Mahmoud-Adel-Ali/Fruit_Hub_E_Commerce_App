@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
+import '../login_view.dart';
+import 'login_signup_switch_row.dart';
 import 'signup_form.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -8,15 +10,21 @@ class SignupViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: kHorizontalPadding),
         child: Column(
           children: [
-            SizedBox(height: 24),
-            SignupForm(),
-            SizedBox(height: 33),
-            SizedBox(height: 33),
+            const SizedBox(height: 24),
+            const SignupForm(),
+            const SizedBox(height: 26),
+            LoginSignupSwitchRow(
+              questionText: 'تَمْتَلِكَ حِسَابًا بِالْفِعْلِ؟',
+              actionText: "تَسْجِيلُ دُخُولٍ",
+              onPressed: () {
+                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+              },
+            ),
           ],
         ),
       ),
