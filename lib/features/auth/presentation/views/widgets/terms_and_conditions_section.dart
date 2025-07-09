@@ -4,8 +4,8 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class TermsAndConditionsSection extends StatefulWidget {
-  const TermsAndConditionsSection({super.key});
-
+  const TermsAndConditionsSection({super.key, this.onChanged});
+  final ValueChanged<bool>? onChanged;
   @override
   State<TermsAndConditionsSection> createState() =>
       _TermsAndConditionsSectionState();
@@ -25,9 +25,9 @@ class _TermsAndConditionsSectionState extends State<TermsAndConditionsSection> {
           child: Checkbox(
             value: isChecked,
             onChanged: (value) {
-              setState(() {
-                isChecked = value!;
-              });
+              isChecked = value!;
+              setState(() {});
+              widget.onChanged!(value);
             },
             activeColor: AppColors.primaryColor,
             checkColor: Colors.white,

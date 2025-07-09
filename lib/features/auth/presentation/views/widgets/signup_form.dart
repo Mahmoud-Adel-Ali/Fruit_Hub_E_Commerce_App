@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
@@ -17,7 +19,11 @@ class SignupForm extends StatelessWidget {
         const CustomNameTextFormField(),
         const CustomEmailTextFormField(),
         const CustomPasswordTextFormField(),
-        const TermsAndConditionsSection(),
+        TermsAndConditionsSection(
+          onChanged: (value) {
+            log("checkbox value: $value");
+          },
+        ),
         const SizedBox(height: 12),
         CustomButton(text: "إنشاء حساب جديد", onPressed: () {}),
       ],
