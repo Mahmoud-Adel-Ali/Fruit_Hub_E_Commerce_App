@@ -53,7 +53,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                 : AppColors.primaryColorWithOpacity,
           ),
         ),
-        SizedBox(height: 29),
+        const SizedBox(height: 29),
         Visibility(
           visible: currentPage == 1,
           maintainSize: true,
@@ -73,7 +73,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
             ),
           ),
         ),
-        SizedBox(height: 43),
+        const SizedBox(height: 43),
       ],
     );
   }

@@ -22,18 +22,22 @@ class OnBoardingPageView extends StatelessWidget {
               const Text("مرحبًا بك في  ", style: AppTextStyles.bold23),
               Text(
                 "HUB",
-                style: AppTextStyles.bold23.copyWith(color: AppColors.secondaryColor),
+                style: AppTextStyles.bold23.copyWith(
+                  color: AppColors.secondaryColor,
+                ),
               ),
               Text(
                 "Fruit",
-                style: AppTextStyles.bold23.copyWith(color: AppColors.primaryColor),
+                style: AppTextStyles.bold23.copyWith(
+                  color: AppColors.primaryColor,
+                ),
               ),
             ],
           ),
           subtitle:
               'اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.',
         ),
-        PageViewItem(
+        const PageViewItem(
           backgroundImage: Assets.imagesPageViewItem2BackgroundImage,
           image: Assets.imagesPageViewItem2Image,
           isLast: true,
