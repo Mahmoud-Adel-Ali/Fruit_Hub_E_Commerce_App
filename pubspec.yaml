@@ -30,13 +30,14 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dots_indicator: ^4.0.1
-  intl:
+  firebase_core: ^3.15.1
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.2.0
   get_it: ^8.0.3
+  intl: null
   shared_preferences: ^2.5.3
 
 dev_dependencies:
