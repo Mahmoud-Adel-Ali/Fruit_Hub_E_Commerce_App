@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_hub_e_commerce_app/core/widgets/success_dialog.dart';
 import 'package:fruit_hub_e_commerce_app/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -16,6 +17,11 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccess) {
           Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+          successDialog(
+            context,
+            msg:
+                " تَمَّ إِنْشَاءَ اَلْحِسَابِ بِنَجَاحٍ، يُمْكِنُكَ اَلْآنَ تَسْجِيلَ اَلدُّخُولِ ",
+          );
         } else if (state is SignupFailure) {
           errorDialog(context, msg: state.message);
         }

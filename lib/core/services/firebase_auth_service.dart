@@ -14,17 +14,17 @@ class FirebaseAuthService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'كلمة المرور المدخلة ضعيفة جدًا.');
+        throw CustomException(message: 'كَلِمَةُ اَلْمُرُورِ اَلْمُدْخَلَةِ ضَعِيفَةً جِدًّا.');
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(
           message:
-              'يوجد حساب مسجل بالفعل بهذا البريد الإلكتروني , الرجاء تسجيل الدخول.',
+              'يُوجَد حِسَابٌ مُسَجَّلٌ- بِالْفِعْلِ- بِهَذَا اَلْبَرِيدِ اَلْإِلِكْتِرُونِيِّ، اَلرَّجَاءُ تَسْجِيلَ اَلدُّخُولِ.',
         );
       } else {
-        throw CustomException(message: 'فشل إنشاء الحساب , حاول مرة أخرى.');
+        throw CustomException(message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.');
       }
     } catch (e) {
-      throw CustomException(message: 'فشل إنشاء الحساب , حاول مرة أخرى.');
+      throw CustomException(message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.');
     }
   }
 }
