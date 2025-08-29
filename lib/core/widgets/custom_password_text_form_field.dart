@@ -1,42 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub_e_commerce_app/core/widgets/custom_text_form_field.dart';
+
+import '../helper_functions/validation_of_input_fields.dart';
+import '../utils/app_colors.dart';
+import 'custom_text_form_field.dart';
 
 class CustomPasswordTextFormField extends StatefulWidget {
-  const CustomPasswordTextFormField({super.key, this.controller});
+  const CustomPasswordTextFormField({
+    super.key,
+    this.controller,
+    this.hintText = 'كلمة المرور',
+  });
   final TextEditingController? controller;
+  final String hintText;
 
   @override
-  State<CustomPasswordTextFormField> createState() => _CustomPasswordTextFormFieldState();
+  State<CustomPasswordTextFormField> createState() =>
+      _CustomPasswordTextFormFieldState();
 }
 
-class _CustomPasswordTextFormFieldState extends State<CustomPasswordTextFormField> {
-  bool _obscureText = true;
+class _CustomPasswordTextFormFieldState
+    extends State<CustomPasswordTextFormField> {
+  bool showPassword = false, validPassword = false;
 
   @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      hintText: 'كلمة المرور',
+      hintText: widget.hintText,
       keyboardType: TextInputType.visiblePassword,
-      obscureText: _obscureText,
+      validator: (value) => validatorOfPassword(value),
+      obscureText: !showPassword,
       controller: widget.controller,
-      validator: (password) {
-        if (password == null || password.isEmpty) {
-          return 'كلمة المرور مطلوبة';
-        } else if (password.length < 8) {
-          return 'يجب أن تكون كلمة المرور 8 أحرف على الأقل';
-        }
-        return null;
-      },
-      suffixIcon: IconButton(
-        icon: Icon(
-          _obscureText ? Icons.visibility_off : Icons.visibility,
-        ),
-        onPressed: () {
-          setState(() {
-            _obscureText = !_obscureText;
-          });
-        },
+      prefixIcon: Icon(
+        Icons.lock_outlined,
+        color: validPassword ? AppColors.primaryColor : AppColors.grey,
       ),
+      suffixIcon: IconButton(
+        onPressed: () {
+          showPassword = !showPassword;
+          setState(() {});
+        },
+        icon: Icon(
+          showPassword ? Icons.visibility : Icons.visibility_off,
+          color: validPassword ? AppColors.primaryColor : AppColors.grey,
+        ),
+      ),
+      onChanged: (value) {
+        validPassword = validatorOfPasswordBool(value);
+        setState(() {});
+      },
     );
   }
 }

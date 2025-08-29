@@ -1,22 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub_e_commerce_app/core/widgets/custom_text_form_field.dart';
 
-class CustomNameTextFormField extends StatelessWidget {
+import '../helper_functions/validation_of_input_fields.dart';
+import '../utils/app_colors.dart';
+import 'custom_text_form_field.dart';
+
+class CustomNameTextFormField extends StatefulWidget {
   const CustomNameTextFormField({super.key, this.controller});
   final TextEditingController? controller;
 
   @override
+  State<CustomNameTextFormField> createState() =>
+      _CustomNameTextFormFieldState();
+}
+
+class _CustomNameTextFormFieldState extends State<CustomNameTextFormField> {
+  bool validName = false;
+  @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      hintText: 'الاسم الكامل',
-      keyboardType: TextInputType.name,
-      validator: (name) {
-        if (name == null || name.isEmpty) {
-          return 'الاسم مطلوب';
-        }
-        return null;
+      hintText: 'الإسم',
+      keyboardType: TextInputType.text,
+      controller: widget.controller,
+      validator: (value) => validatorOfUserName(value),
+      onChanged: (value) {
+        validName = validatorOfUserNameBool(value);
+        setState(() {});
       },
-      controller: controller,
+      suffixIcon: validName
+          ? Icon(Icons.check, size: 24, color: AppColors.primaryColor)
+          : null,
+      prefixIcon: Icon(
+        Icons.person_outline_outlined,
+        color: validName ? AppColors.primaryColor : AppColors.grey,
+      ),
     );
   }
 }

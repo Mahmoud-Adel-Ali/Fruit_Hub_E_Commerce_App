@@ -1,22 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub_e_commerce_app/core/widgets/custom_text_form_field.dart';
 
-class CustomEmailTextFormField extends StatelessWidget {
+import '../helper_functions/validation_of_input_fields.dart';
+import '../utils/app_colors.dart';
+import 'custom_text_form_field.dart';
+
+class CustomEmailTextFormField extends StatefulWidget {
   const CustomEmailTextFormField({super.key, this.controller});
   final TextEditingController? controller;
-  @override
 
+  @override
+  State<CustomEmailTextFormField> createState() =>
+      _CustomEmailTextFormFieldState();
+}
+
+class _CustomEmailTextFormFieldState extends State<CustomEmailTextFormField> {
+  bool validEmail = false;
+
+  @override
   Widget build(BuildContext context) {
     return CustomTextFormField(
-      hintText: 'البريد الإلكتروني',
+      hintText: 'البريد الألكتروني',
       keyboardType: TextInputType.emailAddress,
-      validator: (email) {
-        if (email == null || email.isEmpty) {
-          return 'البريد الإلكتروني مطلوب';
-        }
-        return null;
+      validator: (value) => validatorOfEmail(value),
+      controller: widget.controller,
+      prefixIcon: Icon(
+        Icons.email_outlined,
+        color: validEmail ? AppColors.primaryColor : AppColors.grey,
+      ),
+      suffixIcon: validEmail
+          ? Icon(Icons.check, size: 24, color: AppColors.primaryColor)
+          : null,
+      onChanged: (value) {
+        validEmail = validatorOfEmailBool(value);
+        setState(() {});
       },
-      controller: controller,
     );
   }
 }

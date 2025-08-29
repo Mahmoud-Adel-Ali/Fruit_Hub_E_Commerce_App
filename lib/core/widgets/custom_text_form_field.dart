@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
     this.obscureText = false,
     this.onChanged,
     this.suffixIcon,
+    this.prefixIcon,
     this.validator,
     this.controller,
     this.keyboardType,
@@ -19,6 +20,7 @@ class CustomTextFormField extends StatelessWidget {
   final bool? obscureText;
   final Function(String)? onChanged;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   @override
@@ -40,6 +42,7 @@ class CustomTextFormField extends StatelessWidget {
         ),
         hintText: hintText,
         suffixIcon: suffixIcon,
+        prefixIcon: prefixIcon,
         contentPadding: const EdgeInsets.symmetric(
           vertical: 16.0,
           horizontal: 16.0,
