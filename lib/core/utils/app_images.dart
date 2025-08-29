@@ -2,6 +2,16 @@
 class Assets {
   Assets._();
   
+  static const String animationsCongratsLottie = "assets/animations/congrats_lottie.json";
+
+  static const String animationsEmptyLottie = "assets/animations/empty_lottie.json";
+
+  static const String animationsError = "assets/animations/error.json";
+
+  static const String animationsLoadingLottie = "assets/animations/loading_lottie.json";
+
+  static const String animationsSuccess = "assets/animations/success.json";
+
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
   static const String imagesAppleIcon = "assets/images/apple_icon.svg";

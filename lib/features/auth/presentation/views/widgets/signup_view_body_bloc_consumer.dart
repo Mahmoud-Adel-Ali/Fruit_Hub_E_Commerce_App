@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub_e_commerce_app/features/auth/presentation/cubits/signup_cubit/signup_cubit.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../../core/widgets/error_dialog.dart';
 import '../login_view.dart';
 import 'signup_view_body.dart';
 
@@ -16,9 +17,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
         if (state is SignupSuccess) {
           Navigator.of(context).pushReplacementNamed(LoginView.routeName);
         } else if (state is SignupFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(state.message), backgroundColor: Colors.red),
-          );
+          errorDialog(context, msg: state.message);
         }
       },
       builder: (context, state) {
