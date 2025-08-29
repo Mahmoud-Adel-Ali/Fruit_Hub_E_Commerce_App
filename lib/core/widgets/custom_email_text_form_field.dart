@@ -5,6 +5,7 @@ class CustomEmailTextFormField extends StatelessWidget {
   const CustomEmailTextFormField({super.key, this.controller});
   final TextEditingController? controller;
   @override
+
   Widget build(BuildContext context) {
     return CustomTextFormField(
       hintText: 'البريد الإلكتروني',
