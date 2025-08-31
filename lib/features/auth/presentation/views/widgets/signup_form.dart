@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -7,6 +5,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_text_form_field.dart';
 import '../../../../../core/widgets/custom_name_text_form_field.dart';
 import '../../../../../core/widgets/custom_password_text_form_field.dart';
+import '../../../../../core/widgets/error_dialog.dart';
 import '../../cubits/signup_cubit/signup_cubit.dart';
 import 'terms_and_conditions_section.dart';
 
@@ -25,6 +24,7 @@ class _SignupFormState extends State<SignupForm> {
   var nameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  bool isTermsAccepted = false;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -38,7 +38,7 @@ class _SignupFormState extends State<SignupForm> {
           CustomPasswordTextFormField(controller: passwordController),
           TermsAndConditionsSection(
             onChanged: (value) {
-              log("checkbox value: $value");
+              isTermsAccepted = value;
             },
           ),
           const SizedBox(height: 12),
@@ -48,11 +48,18 @@ class _SignupFormState extends State<SignupForm> {
               if (formKey.currentState!.validate()) {
                 autovalidateMode = AutovalidateMode.disabled;
                 formKey.currentState!.save();
-                context.read<SignupCubit>().createUserWithEmailAndPassword(
-                  name: nameController.text,
-                  email: emailController.text,
-                  password: passwordController.text,
-                );
+                if (isTermsAccepted) {
+                  context.read<SignupCubit>().createUserWithEmailAndPassword(
+                    name: nameController.text,
+                    email: emailController.text,
+                    password: passwordController.text,
+                  );
+                } else {
+                  errorDialog(
+                    context,
+                    msg: "يجب عليك الموافقه علي الشروط و الاحكام.",
+                  );
+                }
               } else {
                 autovalidateMode = AutovalidateMode.always;
               }
