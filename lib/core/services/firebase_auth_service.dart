@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 import '../errors/exceptions.dart';
@@ -13,18 +15,34 @@ class FirebaseAuthService {
           .createUserWithEmailAndPassword(email: email, password: password);
       return credential.user!;
     } on FirebaseAuthException catch (e) {
+      log(
+        "Exception in FirebaseAuthService.createUserWithEmailAndPassword :- $e",
+      );
       if (e.code == 'weak-password') {
-        throw CustomException(message: 'كَلِمَةُ اَلْمُرُورِ اَلْمُدْخَلَةِ ضَعِيفَةً جِدًّا.');
+        throw CustomException(
+          message: 'كَلِمَةُ اَلْمُرُورِ اَلْمُدْخَلَةِ ضَعِيفَةً جِدًّا.',
+        );
       } else if (e.code == 'email-already-in-use') {
         throw CustomException(
           message:
               'يُوجَد حِسَابٌ مُسَجَّلٌ- بِالْفِعْلِ- بِهَذَا اَلْبَرِيدِ اَلْإِلِكْتِرُونِيِّ، اَلرَّجَاءُ تَسْجِيلَ اَلدُّخُولِ.',
         );
+      } else if (e.code == "netword-request-failed") {
+        throw CustomException(
+          message: "تَأَكَّدَ مِنْ اَلِاتِّصَالِ بِالْإِنْتَرْنِت.",
+        );
       } else {
-        throw CustomException(message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.');
+        throw CustomException(
+          message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.',
+        );
       }
     } catch (e) {
-      throw CustomException(message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.');
+      log(
+        "Exception in FirebaseAuthService.createUserWithEmailAndPassword :- $e",
+      );
+      throw CustomException(
+        message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.',
+      );
     }
   }
 }
