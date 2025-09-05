@@ -5,7 +5,7 @@ import '../../../../core/services/service_locator.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../cubits/signin_cubit/signin_cubit.dart';
-import 'widgets/login_view_body.dart';
+import 'widgets/login_view_body_bloc_consumer.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
       create: (context) => SigninCubit(authRepo: getit<AuthRepo>()),
       child: Scaffold(
         appBar: customAppBar(context, title: 'تسجيل دخول', showLeading: false),
-        body: const LoginViewBody(),
+        body: const LoginViewBodyBlocConsumer(),
       ),
     );
   }
