@@ -1,4 +1,5 @@
-import 'package:flutter/widgets.dart';
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -6,20 +7,20 @@ class AppBlocObserver extends BlocObserver {
   void onCreate(BlocBase<dynamic> bloc) {
     super.onCreate(bloc);
 
-    debugPrint('onCreate -- ${bloc.runtimeType}');
+    log('onCreate -- ${bloc.runtimeType}');
   }
 
   @override
   void onEvent(Bloc<dynamic, dynamic> bloc, Object? event) {
     super.onEvent(bloc, event);
-    debugPrint('onEvent -- ${bloc.runtimeType}');
+    log('onEvent -- ${bloc.runtimeType}');
   }
 
   @override
   void onChange(BlocBase<dynamic> bloc, Change<dynamic> change) {
     super.onChange(bloc, change);
 
-    debugPrint('onChange -- ${bloc.runtimeType}');
+    log('onChange -- ${bloc.runtimeType}');
   }
 
   @override
@@ -32,7 +33,7 @@ class AppBlocObserver extends BlocObserver {
 
   @override
   void onError(BlocBase<dynamic> bloc, Object error, StackTrace stackTrace) {
-    debugPrint('onError -- ${bloc.runtimeType}');
+    log('onError -- ${bloc.runtimeType}');
     super.onError(bloc, error, stackTrace);
   }
 
@@ -40,6 +41,6 @@ class AppBlocObserver extends BlocObserver {
   void onClose(BlocBase<dynamic> bloc) {
     super.onClose(bloc);
 
-    debugPrint('onClose -- ${bloc.runtimeType}');
+    log('onClose -- ${bloc.runtimeType}');
   }
 }
