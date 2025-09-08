@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
-import '../login_view.dart';
-import 'login_signup_switch_row.dart';
+import '../signin_view.dart';
+import 'signin_signup_switch_row.dart';
 import 'signup_form.dart';
 
 class SignupViewBody extends StatelessWidget {
@@ -18,11 +18,13 @@ class SignupViewBody extends StatelessWidget {
             const SizedBox(height: 24),
             const SignupForm(),
             const SizedBox(height: 26),
-            LoginSignupSwitchRow(
+            SigninSignupSwitchRow(
               questionText: 'تَمْتَلِكَ حِسَابًا بِالْفِعْلِ؟',
               actionText: "تَسْجِيلُ دُخُولٍ",
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+                Navigator.of(
+                  context,
+                ).pushReplacementNamed(SigninView.routeName);
               },
             ),
           ],

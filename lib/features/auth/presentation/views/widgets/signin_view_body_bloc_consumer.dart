@@ -4,10 +4,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../core/widgets/error_dialog.dart';
 import '../../cubits/signin_cubit/signin_cubit.dart';
-import 'login_view_body.dart';
+import 'signin_view_body.dart';
 
-class LoginViewBodyBlocConsumer extends StatelessWidget {
-  const LoginViewBodyBlocConsumer({super.key});
+class SigninViewBodyBlocConsumer extends StatelessWidget {
+  const SigninViewBodyBlocConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class LoginViewBodyBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         return ModalProgressHUD(
           inAsyncCall: state is SigninLoading,
-          child: const LoginViewBody(),
+          child: const SigninViewBody(),
         );
       },
     );

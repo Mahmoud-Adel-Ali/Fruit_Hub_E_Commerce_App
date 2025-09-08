@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruit_hub_e_commerce_app/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub_e_commerce_app/features/auth/presentation/views/signin_view.dart';
 
 import '../../../../../core/databases/cach_helper.dart';
 import '../../../../../core/databases/cach_keys.dart';
@@ -47,7 +47,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         false;
     Future.delayed(const Duration(seconds: 3), () {
       isOnBoardingViewSeen
-          ? Navigator.pushReplacementNamed(context, LoginView.routeName)
+          ? Navigator.pushReplacementNamed(context, SigninView.routeName)
           : Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
     });
   }

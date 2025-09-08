@@ -7,14 +7,14 @@ import '../../../../../core/widgets/custom_password_text_form_field.dart';
 import '../../cubits/signin_cubit/signin_cubit.dart';
 import 'i_forget_my_password_widget.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+class SigninForm extends StatefulWidget {
+  const SigninForm({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<SigninForm> createState() => _SigninFormState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _SigninFormState extends State<SigninForm> {
   final formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 

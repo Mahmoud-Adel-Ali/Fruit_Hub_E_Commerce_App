@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../signup_view.dart';
-import 'login_form.dart';
-import 'login_signup_switch_row.dart';
-import 'login_social_section.dart';
 import 'or_divider.dart';
+import 'signin_form.dart';
+import 'signin_signup_switch_row.dart';
+import 'signin_social_section.dart';
 
-class LoginViewBody extends StatelessWidget {
-  const LoginViewBody({super.key});
+class SigninViewBody extends StatelessWidget {
+  const SigninViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class LoginViewBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 24),
-            const LoginForm(),
+            const SigninForm(),
             const SizedBox(height: 33),
-            LoginSignupSwitchRow(
+            SigninSignupSwitchRow(
               questionText: 'لَا تَمْلِكُ حِسَابًا؟',
               actionText: "قُمْ بِإِنْشَاءِ حِسَابٍ",
               onPressed: () {
@@ -32,7 +32,7 @@ class LoginViewBody extends StatelessWidget {
             const SizedBox(height: 33),
             const OrDivider(),
             const SizedBox(height: 16),
-            const LoginSocialSection(),
+            const SigninSocialSection(),
             const SizedBox(height: 42),
           ],
         ),

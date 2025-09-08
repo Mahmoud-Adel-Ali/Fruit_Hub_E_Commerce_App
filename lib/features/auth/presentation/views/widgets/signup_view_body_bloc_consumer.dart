@@ -5,7 +5,7 @@ import 'package:fruit_hub_e_commerce_app/features/auth/presentation/cubits/signu
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../../../../../core/widgets/error_dialog.dart';
-import '../login_view.dart';
+import '../signin_view.dart';
 import 'signup_view_body.dart';
 
 class SignupViewBodyBlocConsumer extends StatelessWidget {
@@ -16,7 +16,7 @@ class SignupViewBodyBlocConsumer extends StatelessWidget {
     return BlocConsumer<SignupCubit, SignupState>(
       listener: (context, state) {
         if (state is SignupSuccess) {
-          Navigator.of(context).pushReplacementNamed(LoginView.routeName);
+          Navigator.of(context).pushReplacementNamed(SigninView.routeName);
           successDialog(
             context,
             msg:

@@ -7,7 +7,7 @@ import '../../../../../core/databases/cach_keys.dart';
 import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../auth/presentation/views/login_view.dart';
+import '../../../../auth/presentation/views/signin_view.dart';
 import 'on_boarding_page_view.dart';
 
 class OnBoardingViewBody extends StatefulWidget {
@@ -68,7 +68,7 @@ class _OnBoardingViewBodyState extends State<OnBoardingViewBody> {
                   CachKeys.isOnBoardingViewSeen,
                   true,
                 );
-                Navigator.pushReplacementNamed(context, LoginView.routeName);
+                Navigator.pushReplacementNamed(context, SigninView.routeName);
               },
             ),
           ),

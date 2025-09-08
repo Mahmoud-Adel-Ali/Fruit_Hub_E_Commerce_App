@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_images.dart';
 import 'social_auth_button.dart';
 
-class LoginSocialSection extends StatelessWidget {
-  const LoginSocialSection({super.key});
+class SigninSocialSection extends StatelessWidget {
+  const SigninSocialSection({super.key});
 
   @override
   Widget build(BuildContext context) {

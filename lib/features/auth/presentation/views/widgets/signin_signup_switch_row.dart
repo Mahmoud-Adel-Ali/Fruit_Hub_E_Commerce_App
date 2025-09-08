@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_text_button.dart';
 
-class LoginSignupSwitchRow extends StatelessWidget {
+class SigninSignupSwitchRow extends StatelessWidget {
   final String questionText;
   final String actionText;
   final VoidCallback onPressed;
 
-  const LoginSignupSwitchRow({
+  const SigninSignupSwitchRow({
     super.key,
     required this.questionText,
     required this.actionText,

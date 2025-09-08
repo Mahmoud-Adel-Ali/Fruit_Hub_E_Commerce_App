@@ -5,7 +5,7 @@ import '../../../../../core/databases/cach_helper.dart';
 import '../../../../../core/databases/cach_keys.dart';
 import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../auth/presentation/views/login_view.dart';
+import '../../../../auth/presentation/views/signin_view.dart';
 
 class PageViewItem extends StatelessWidget {
   const PageViewItem({
@@ -52,7 +52,7 @@ class PageViewItem extends StatelessWidget {
                       );
                       Navigator.pushReplacementNamed(
                         context,
-                        LoginView.routeName,
+                        SigninView.routeName,
                       );
                     },
                     child: const Text('تخط', style: AppTextStyles.regular13),
