@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
+import '../../../../../core/widgets/custom_progress_hub.dart';
 import '../../../../../core/widgets/error_dialog.dart';
 import '../../cubits/signin_cubit/signin_cubit.dart';
 import 'signin_view_body.dart';
@@ -21,8 +21,8 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
         }
       },
       builder: (context, state) {
-        return ModalProgressHUD(
-          inAsyncCall: state is SigninLoading,
+        return CustomProgressHub(
+          isLoading: state is SigninLoading,
           child: const SigninViewBody(),
         );
       },
