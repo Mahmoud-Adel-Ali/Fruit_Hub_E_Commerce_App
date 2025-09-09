@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../utils/app_text_styles.dart';
 
-customAppBar(
+AppBar customAppBar(
   BuildContext context, {
   required String title,
   bool showLeading = true,
