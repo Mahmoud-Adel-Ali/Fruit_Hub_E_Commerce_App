@@ -85,8 +85,13 @@ class FirebaseAuthService {
   Future<void> signOut() async => await FirebaseAuth.instance.signOut();
 
   Future<User> signInWithGoogle() async {
-    final GoogleSignInAccount googleUser = await GoogleSignIn.instance
-        .authenticate();
+    final GoogleSignIn googleSignIn = GoogleSignIn.instance;
+
+    googleSignIn.initialize(
+      serverClientId:
+          "485605032271-trjho3ue285k2gm077j6bm3kuqaue1ei.apps.googleusercontent.com",
+    );
+    final GoogleSignInAccount googleUser = await googleSignIn.authenticate();
 
     final GoogleSignInAuthentication googleAuth = googleUser.authentication;
 

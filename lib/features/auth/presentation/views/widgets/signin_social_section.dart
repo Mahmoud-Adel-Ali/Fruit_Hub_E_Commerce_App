@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/app_images.dart';
+import '../../cubits/signin_cubit/signin_cubit.dart';
 import 'social_auth_button.dart';
 
 class SigninSocialSection extends StatelessWidget {
@@ -14,7 +16,7 @@ class SigninSocialSection extends StatelessWidget {
         SocialAuthButton(
           text: 'تسجيل بواسطة جوجل',
           icon: Assets.imagesGoogleIcon,
-          onPressed: () {},
+          onPressed: () => context.read<SigninCubit>().signInWithGoogle(),
         ),
         SocialAuthButton(
           text: "تسجيل بواسطة أبل",
