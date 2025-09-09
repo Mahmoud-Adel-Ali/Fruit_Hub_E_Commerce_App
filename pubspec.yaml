@@ -32,23 +32,24 @@ dependencies:
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dots_indicator: ^4.0.1
-  firebase_auth: 5.6.2
-  firebase_core: ^3.15.1
+  firebase_auth: ^6.0.2
+  firebase_core: ^4.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^2.2.0
-  get_it: ^8.0.3
-  intl: null
+  flutter_svg: ^2.2.1
+  get_it: ^8.2.0
+  google_sign_in: ^7.1.1
+  intl: ^0.20.2
   lottie: ^3.3.1
   modal_progress_hud_nsn: ^0.5.1
   shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_launcher_icons: ^0.14.4
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
 

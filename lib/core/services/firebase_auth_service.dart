@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 import '../errors/exceptions.dart';
 
@@ -79,5 +80,25 @@ class FirebaseAuthService {
         message: "لقد حدث خطا ما, الرجاء المحاوله مره اخري",
       );
     }
+  }
+
+  Future<void> signOut() async => await FirebaseAuth.instance.signOut();
+
+  Future<User> signInWithGoogle() async {
+    final GoogleSignInAccount googleUser = await GoogleSignIn.instance
+        .authenticate();
+
+    final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      // accessToken: googleAuth?.accessToken,
+      accessToken: googleAuth.idToken,
+      idToken: googleAuth.idToken,
+    );
+
+    var userCredential = await FirebaseAuth.instance.signInWithCredential(
+      credential,
+    );
+    return userCredential.user!;
   }
 }
