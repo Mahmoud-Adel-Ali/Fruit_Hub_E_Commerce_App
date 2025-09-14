@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 
 import '../../../domain/entities/user_entity.dart';
@@ -33,8 +35,10 @@ class SigninCubit extends Cubit<SigninState> {
   }
 
   Future<void> signInWithFacebook() async {
+    log("signIn With Facebook Loading...");
     emit(SigninLoading());
     final result = await authRepo.signInWithFacebook();
+    log("signIn With Facebook Result: $result");
     result.fold(
       (failure) => emit(SigninFailure(message: failure.message)),
       (userEntity) => emit(SigninSuccess(userEntity: userEntity)),
