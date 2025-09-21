@@ -12,6 +12,10 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import '../errors/exceptions.dart';
 
 class FirebaseAuthService {
+  Future deleteUser() async {
+    await FirebaseAuth.instance.currentUser!.delete();
+  }
+
   Future<User> createUserWithEmailAndPassword({
     required String name,
     required String email,
