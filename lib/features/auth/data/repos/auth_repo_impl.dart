@@ -33,8 +33,9 @@ class AuthRepoImpl implements AuthRepo {
         password: password,
       );
       var userModel = UserModel.fromFirebaseUser(user);
-      await addUserData(user: userModel);
-      return Right(userModel);
+      var newUser = userModel.copyWith(name: name);
+      await addUserData(user: newUser);
+      return Right(newUser);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e) {
