@@ -59,7 +59,7 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final user = await firebaseAuthService.signInWithGoogle();
       return Right(UserModel.fromFirebaseUser(user));
-    }  catch (e) {
+    } catch (e) {
       log("Exception in AuthRepoImpl.signInWithGoogle :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
@@ -70,8 +70,19 @@ class AuthRepoImpl implements AuthRepo {
     try {
       final user = await firebaseAuthService.signInWithFacebook();
       return Right(UserModel.fromFirebaseUser(user));
-    }  catch (e) {
+    } catch (e) {
       log("Exception in AuthRepoImpl.signInWithFacebook :- $e");
+      return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithApple() async {
+    try {
+      final user = await firebaseAuthService.signInWithApple();
+      return Right(UserModel.fromFirebaseUser(user));
+    } catch (e) {
+      log("Exception in AuthRepoImpl.signInWithApple :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
   }

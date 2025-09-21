@@ -21,7 +21,7 @@ class SigninSocialSection extends StatelessWidget {
         SocialAuthButton(
           text: "تسجيل بواسطة أبل",
           icon: Assets.imagesAppleIcon,
-          onPressed: () {},
+          onPressed: () => context.read<SigninCubit>().signInWithApple(),
         ),
         SocialAuthButton(
           text: 'تسجيل بواسطة فيسبوك',
