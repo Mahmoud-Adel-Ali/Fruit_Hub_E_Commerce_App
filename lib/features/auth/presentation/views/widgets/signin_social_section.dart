@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,11 +20,12 @@ class SigninSocialSection extends StatelessWidget {
           icon: Assets.imagesGoogleIcon,
           onPressed: () => context.read<SigninCubit>().signInWithGoogle(),
         ),
-        SocialAuthButton(
-          text: "تسجيل بواسطة أبل",
-          icon: Assets.imagesAppleIcon,
-          onPressed: () => context.read<SigninCubit>().signInWithApple(),
-        ),
+        if (Platform.isIOS)
+          SocialAuthButton(
+            text: "تسجيل بواسطة أبل",
+            icon: Assets.imagesAppleIcon,
+            onPressed: () => context.read<SigninCubit>().signInWithApple(),
+          ),
         SocialAuthButton(
           text: 'تسجيل بواسطة فيسبوك',
           icon: Assets.imagesFacebookIcon,
