@@ -2,17 +2,23 @@ import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub_e_commerce_app/core/errors/failures.dart';
+import 'package:fruit_hub_e_commerce_app/core/services/database_service.dart';
 import 'package:fruit_hub_e_commerce_app/features/auth/domain/entities/user_entity.dart';
 
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/utils/end_points.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../models/user_model.dart';
 
 class AuthRepoImpl implements AuthRepo {
   final FirebaseAuthService firebaseAuthService;
+  final DatabaseService databaseService;
 
-  AuthRepoImpl({required this.firebaseAuthService});
+  AuthRepoImpl({
+    required this.firebaseAuthService,
+    required this.databaseService,
+  });
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword({
@@ -26,7 +32,9 @@ class AuthRepoImpl implements AuthRepo {
         email: email,
         password: password,
       );
-      return Right(UserModel.fromFirebaseUser(user));
+      var userModel = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userModel);
+      return Right(userModel);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e) {
@@ -85,5 +93,13 @@ class AuthRepoImpl implements AuthRepo {
       log("Exception in AuthRepoImpl.signInWithApple :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
+  }
+
+  @override
+  Future addUserData({required UserEntity user}) async {
+    await databaseService.addData(
+      path: EndPoints.addUsersData,
+      data: user.toMap(),
+    );
   }
 }
