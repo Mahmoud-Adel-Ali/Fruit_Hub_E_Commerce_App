@@ -7,15 +7,6 @@ class UserEntity {
 
   UserEntity({required this.name, required this.uId, required this.email});
 
-  factory UserEntity.fromMap(Map<String, dynamic> json) {
-    return UserEntity(
-      name: json[AppKeys.name],
-      uId: json[AppKeys.uId],
-      email: json[AppKeys.email],
-    );
-  }
-
-  // toMap
   Map<String, dynamic> toMap() => {
     AppKeys.name: name,
     AppKeys.uId: uId,
