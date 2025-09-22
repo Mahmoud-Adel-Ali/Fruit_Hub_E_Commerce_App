@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../../features/auth/domain/entities/user_entity.dart';
 import 'database_service.dart';
 
 class FirestoreService implements DatabaseService {
@@ -16,11 +15,14 @@ class FirestoreService implements DatabaseService {
   }
 
   @override
-  Future<UserEntity> getUserData({
+  Future<Map<String, dynamic>> getData({
     required String path,
-    required String uId,
+    required String documentId,
   }) async {
-    DocumentSnapshot snapshot = await firestore.collection(path).doc(uId).get();
-    return UserEntity.fromMap(snapshot.data() as Map<String, dynamic>);
+    DocumentSnapshot snapshot = await firestore
+        .collection(path)
+        .doc(documentId)
+        .get();
+    return snapshot.data() as Map<String, dynamic>;
   }
 }
