@@ -8,11 +8,15 @@ class FirestoreService implements DatabaseService {
   @override
   Future<void> addData({
     required String path,
-    required String documentId,
     required Map<String, dynamic> data,
+    String? documentId,
   }) async {
-    var collection = firestore.collection(path).doc(documentId);
-    await collection.set(data);
+    if (documentId == null) {
+      await firestore.collection(path).add(data);
+    } else {
+      var collection = firestore.collection(path).doc(documentId);
+      await collection.set(data);
+    }
   }
 
   @override
