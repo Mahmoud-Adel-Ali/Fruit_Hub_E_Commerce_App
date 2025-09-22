@@ -39,14 +39,10 @@ class AuthRepoImpl implements AuthRepo {
       await addUserData(user: newUser);
       return Right(newUser);
     } on CustomException catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
       return Left(ServerFailure(e.message));
     } catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.createUserWithEmailAndPassword :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
@@ -73,10 +69,14 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    User? user;
     try {
-      final user = await firebaseAuthService.signInWithGoogle();
-      return Right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithGoogle();
+      var userModel = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userModel);
+      return Right(userModel);
     } catch (e) {
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.signInWithGoogle :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
@@ -84,10 +84,14 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    User? user;
     try {
-      final user = await firebaseAuthService.signInWithFacebook();
-      return Right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithFacebook();
+      var userModel = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userModel);
+      return Right(userModel);
     } catch (e) {
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.signInWithFacebook :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
@@ -95,10 +99,14 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signInWithApple() async {
+    User? user;
     try {
-      final user = await firebaseAuthService.signInWithApple();
-      return Right(UserModel.fromFirebaseUser(user));
+      user = await firebaseAuthService.signInWithApple();
+      var userModel = UserModel.fromFirebaseUser(user);
+      await addUserData(user: userModel);
+      return Right(userModel);
     } catch (e) {
+      await deleteUser(user);
       log("Exception in AuthRepoImpl.signInWithApple :- $e");
       return Left(ServerFailure("لقد حدث خطا ما, الرجاء المحاوله مره اخري"));
     }
@@ -110,5 +118,11 @@ class AuthRepoImpl implements AuthRepo {
       path: EndPoints.addUsersData,
       data: user.toMap(),
     );
+  }
+
+  Future<void> deleteUser(User? user) async {
+    if (user != null) {
+      await firebaseAuthService.deleteUser();
+    }
   }
 }
