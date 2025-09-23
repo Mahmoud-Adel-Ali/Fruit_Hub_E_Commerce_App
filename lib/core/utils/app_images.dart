@@ -18,6 +18,8 @@ class Assets {
 
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
 
+  static const String imagesFilterIcon = "assets/images/filter_icon.svg";
+
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
 
   static const String imagesLogo = "assets/images/logo.svg";
@@ -35,6 +37,8 @@ class Assets {
   static const String imagesPlant = "assets/images/plant.svg";
 
   static const String imagesProfileImage = "assets/images/profile_image.png";
+
+  static const String imagesSearchIcon = "assets/images/search_icon.svg";
 
   static const String imagesSplashBottomDots = "assets/images/splash_bottom_dots.svg";
 }
