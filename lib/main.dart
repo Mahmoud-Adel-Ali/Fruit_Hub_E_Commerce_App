@@ -16,8 +16,3 @@ Future<void> main() async {
   await getit.get<CacheHelper>().init();
   runApp(const FruitHubApp());
 }
-
-// To add facebook login (android/build.gradle.kts)
-// dependencies {
-//      implementation 'com.facebook.android:facebook-login:latest.release'
-// }
