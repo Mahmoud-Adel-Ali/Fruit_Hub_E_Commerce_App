@@ -30,4 +30,16 @@ class FirestoreService implements DatabaseService {
         .get();
     return snapshot.data() as Map<String, dynamic>;
   }
+
+  @override
+  Future<bool> checkIfDataExists({
+    required String path,
+    required String documentId,
+  }) async {
+    DocumentSnapshot snapshot = await firestore
+        .collection(path)
+        .doc(documentId)
+        .get();
+    return snapshot.exists;
+  }
 }
