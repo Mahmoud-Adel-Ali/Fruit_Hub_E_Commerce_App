@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/custom_progress_hub.dart';
 import '../../../../../core/widgets/error_dialog.dart';
+import '../../../../home/presentation/views/home_view.dart';
 import '../../cubits/signin_cubit/signin_cubit.dart';
 import 'signin_view_body.dart';
 
@@ -16,7 +17,7 @@ class SigninViewBodyBlocConsumer extends StatelessWidget {
         if (state is SigninFailure) {
           errorDialog(context, msg: state.message);
         } else if (state is SigninSuccess) {
-          //TODO : navigate to home view
+          Navigator.of(context).pushReplacementNamed(HomeView.routeName);
           //TODO : cache user data in local storage [Hive]
         }
       },
