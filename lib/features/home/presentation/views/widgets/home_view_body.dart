@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
+import 'featured_fruit_item.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -12,9 +13,11 @@ class HomeViewBody extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
         child: Column(
+          spacing: 12,
           children: [
             SizedBox(height: kTopPadding),
             CustomSearchField(),
+            FeaturedFruitItem(),
           ],
         ),
       ),
