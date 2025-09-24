@@ -14,13 +14,10 @@ class FeaturedItem extends StatelessWidget {
     return AspectRatio(
       aspectRatio: 2.165,
       child: Container(
-        height: 175,
         width: screenWidth,
         decoration: ShapeDecoration(
           color: AppColors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
           shadows: [
             BoxShadow(
               color: Color(0x3F000000),

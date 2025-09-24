@@ -8,23 +8,19 @@ class FeaturedFruitItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 175,
-      child: CarouselSlider(
-        options: CarouselOptions(
-          height: 280,
-          autoPlay: false,
-          enlargeCenterPage: true,
-          viewportFraction: 1,
-          aspectRatio: 2.165,
-          animateToClosest: true,
-        ),
-        items: [
-          ...List.generate(4, (index) {
-            return FeaturedItem();
-          }),
-        ],
+    return CarouselSlider(
+      options: CarouselOptions(
+        autoPlay: false,
+        enlargeCenterPage: true,
+        viewportFraction: 1,
+        aspectRatio: 2.165,
+        animateToClosest: true,
       ),
+      items: [
+        ...List.generate(4, (index) {
+          return FeaturedItem();
+        }),
+      ],
     );
   }
 }
