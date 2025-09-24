@@ -5,8 +5,8 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_button.dart';
 
-class FeaturedFruitItem extends StatelessWidget {
-  const FeaturedFruitItem({super.key});
+class FeaturedItem extends StatelessWidget {
+  const FeaturedItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,6 @@ class FeaturedFruitItem extends StatelessWidget {
         decoration: ShapeDecoration(
           color: AppColors.white,
           shape: RoundedRectangleBorder(
-            // side: BorderSide(width: 1),
             borderRadius: BorderRadius.circular(4),
           ),
           shadows: [
