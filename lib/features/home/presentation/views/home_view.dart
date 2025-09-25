@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/custom_bottom_navigation_bar.dart';
 import 'widgets/home_view_app_bar.dart';
 import 'widgets/home_view_body.dart';
 
@@ -13,6 +14,8 @@ class HomeView extends StatelessWidget {
       appBar: homeViewAppBar(),
       // Home View Body
       body: const HomeViewBody(),
+      // custom bottom navigation bar
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }
