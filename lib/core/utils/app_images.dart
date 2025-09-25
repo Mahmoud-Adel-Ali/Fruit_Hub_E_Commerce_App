@@ -24,6 +24,8 @@ class Assets {
 
   static const String imagesAppleIcon = "assets/images/apple_icon.svg";
 
+  static const String imagesArrowBackIcon = "assets/images/arrow_back_icon.svg";
+
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
 
   static const String imagesFilterIcon = "assets/images/filter_icon.svg";
