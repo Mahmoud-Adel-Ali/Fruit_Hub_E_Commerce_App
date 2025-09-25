@@ -12,6 +12,14 @@ class Assets {
 
   static const String animationsSuccess = "assets/animations/success.json";
 
+  static const String imagesActiveCartIcon = "assets/images/active_cart_icon.svg";
+
+  static const String imagesActiveHomeIcon = "assets/images/active_home_icon.svg";
+
+  static const String imagesActiveProductsIcon = "assets/images/active_products_icon.svg";
+
+  static const String imagesActiveProfileIcon = "assets/images/active_profile_icon.svg";
+
   static const String imagesAppIcon = "assets/images/app_icon.png";
 
   static const String imagesAppleIcon = "assets/images/apple_icon.svg";
@@ -21,6 +29,14 @@ class Assets {
   static const String imagesFilterIcon = "assets/images/filter_icon.svg";
 
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
+
+  static const String imagesInActiveCartIcon = "assets/images/in_active_cart_icon.svg";
+
+  static const String imagesInActiveHomeIcon = "assets/images/in_active_home_icon.svg";
+
+  static const String imagesInActiveProductsIcon = "assets/images/in_active_products_icon.svg";
+
+  static const String imagesInActiveProfileIcon = "assets/images/in_active_profile_icon.svg";
 
   static const String imagesLogo = "assets/images/logo.svg";
 
