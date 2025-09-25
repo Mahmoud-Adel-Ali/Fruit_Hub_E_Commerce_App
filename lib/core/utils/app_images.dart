@@ -22,8 +22,6 @@ class Assets {
 
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
 
-  static const String imagesGreenSquare = "assets/images/green_square.png";
-
   static const String imagesLogo = "assets/images/logo.svg";
 
   static const String imagesNotificationIcon = "assets/images/notification_icon.svg";
@@ -45,5 +43,7 @@ class Assets {
   static const String imagesSplashBottomDots = "assets/images/splash_bottom_dots.svg";
 
   static const String imagesTestFeatureFruitImage = "assets/images/test_feature_fruit_image.png";
+
+  static const String imagesTestFruitImage = "assets/images/test_fruit_image.png";
 }
 
