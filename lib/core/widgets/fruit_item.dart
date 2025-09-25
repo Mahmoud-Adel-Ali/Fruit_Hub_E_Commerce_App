@@ -12,8 +12,6 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 222,
-      width: 200,
       padding: const EdgeInsets.all(8),
       decoration: ShapeDecoration(
         color: AppColors.lightGreyWithOpacity,
