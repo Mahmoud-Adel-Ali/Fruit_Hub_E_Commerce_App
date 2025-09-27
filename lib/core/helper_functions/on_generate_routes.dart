@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/views/signin_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
-import '../../features/home/presentation/views/best_selling_view.dart';
+import '../../features/best_selling_fruits/presentation/views/best_selling_view.dart';
 import '../../features/home/presentation/views/home_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
