@@ -208,4 +208,6 @@ class FirebaseAuthService {
     );
     return userCredential.user!;
   }
+
+  bool isLoggedIn() => FirebaseAuth.instance.currentUser != null;
 }

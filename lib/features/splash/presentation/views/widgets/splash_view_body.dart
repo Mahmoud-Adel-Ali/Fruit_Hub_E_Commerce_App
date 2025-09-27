@@ -5,8 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/databases/cach_helper.dart';
 import '../../../../../core/databases/cach_keys.dart';
+import '../../../../../core/services/firebase_auth_service.dart';
 import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_images.dart';
+import '../../../../auth/presentation/views/signin_view.dart';
 import '../../../../home/presentation/views/home_view.dart';
 import '../../../../on_boarding/presentation/views/on_boarding_view.dart';
 
@@ -46,10 +48,16 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         getit.get<CacheHelper>().getBool(CachKeys.isOnBoardingViewSeen) ??
         false;
     Future.delayed(const Duration(seconds: 3), () {
-      isOnBoardingViewSeen
-          ? Navigator.pushReplacementNamed(context, HomeView.routeName)
-          // ? Navigator.pushReplacementNamed(context, SigninView.routeName)
-          : Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      if (isOnBoardingViewSeen) {
+        bool isLoggedIn = FirebaseAuthService().isLoggedIn();
+        if (isLoggedIn) {
+          Navigator.pushReplacementNamed(context, HomeView.routeName);
+        } else {
+          Navigator.pushReplacementNamed(context, SigninView.routeName);
+        }
+      } else {
+        Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
+      }
     });
   }
 }
