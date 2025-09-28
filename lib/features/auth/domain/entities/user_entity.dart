@@ -1,5 +1,3 @@
-import '../../../../core/utils/app_keys.dart';
-
 class UserEntity {
   final String name;
   final String uId;
@@ -7,11 +5,11 @@ class UserEntity {
 
   UserEntity({required this.name, required this.uId, required this.email});
 
-  Map<String, dynamic> toMap() => {
-    AppKeys.name: name,
-    AppKeys.uId: uId,
-    AppKeys.email: email,
-  };
+  // Map<String, dynamic> toMap() => {
+  //   AppKeys.name: name,
+  //   AppKeys.uId: uId,
+  //   AppKeys.email: email,
+  // };
 
   UserEntity copyWith({String? name, String? uId, String? email}) {
     return UserEntity(

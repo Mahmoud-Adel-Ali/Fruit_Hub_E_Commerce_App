@@ -14,7 +14,10 @@ class UserModel extends UserEntity {
     );
   }
 
-  @override
+  factory UserModel.fromEntity(UserEntity user) {
+    return UserModel(name: user.name, uId: user.uId, email: user.email);
+  }
+
   Map<String, dynamic> toMap() => {
     AppKeys.name: name,
     AppKeys.uId: uId,

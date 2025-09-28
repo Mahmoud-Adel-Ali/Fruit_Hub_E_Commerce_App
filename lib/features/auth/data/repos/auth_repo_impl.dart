@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dartz/dartz.dart';
@@ -6,8 +7,11 @@ import 'package:fruit_hub_e_commerce_app/core/errors/failures.dart';
 import 'package:fruit_hub_e_commerce_app/core/services/database_service.dart';
 import 'package:fruit_hub_e_commerce_app/features/auth/domain/entities/user_entity.dart';
 
+import '../../../../constants.dart';
+import '../../../../core/databases/cach_helper.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/services/firebase_auth_service.dart';
+import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/end_points.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../models/user_model.dart';
@@ -142,7 +146,7 @@ class AuthRepoImpl implements AuthRepo {
     await databaseService.addData(
       path: EndPoints.addUsersData,
       documentId: user.uId,
-      data: user.toMap(),
+      data: UserModel.fromEntity(user).toMap(),
     );
   }
 
@@ -159,5 +163,12 @@ class AuthRepoImpl implements AuthRepo {
       documentId: uId,
     );
     return UserModel.fromMap(data);
+  }
+
+  @override
+  Future saveUserData({required UserEntity user}) async {
+    var jsonData = jsonEncode(UserModel.fromEntity(user).toMap());
+
+    await getit.get<CacheHelper>().setString(kUserData, jsonData);
   }
 }
