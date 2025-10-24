@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/helper_functions/get_user_data.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -23,7 +24,7 @@ AppBar homeViewAppBar() {
           style: AppTextStyles.regular16.copyWith(color: AppColors.grey),
         ),
         Text(
-          'محمود عادل',
+          getUserData().name,
           style: AppTextStyles.bold16.copyWith(color: Color(0xFF0C0D0D)),
         ),
       ],

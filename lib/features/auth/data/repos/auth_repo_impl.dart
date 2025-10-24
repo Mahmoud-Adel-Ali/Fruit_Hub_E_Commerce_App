@@ -63,6 +63,7 @@ class AuthRepoImpl implements AuthRepo {
         password: password,
       );
       final userEntity = await getUserData(uId: user.uid);
+      await saveUserData(user: userEntity);
       return Right(userEntity);
     } on CustomException catch (e) {
       return Left(ServerFailure(e.message));
@@ -87,6 +88,7 @@ class AuthRepoImpl implements AuthRepo {
       } else {
         await addUserData(user: userModel);
       }
+      await saveUserData(user: userModel);
       return Right(userModel);
     } catch (e) {
       await deleteUser(user);
@@ -110,6 +112,7 @@ class AuthRepoImpl implements AuthRepo {
       } else {
         await addUserData(user: userModel);
       }
+      await saveUserData(user: userModel);
       return Right(userModel);
     } catch (e) {
       await deleteUser(user);
@@ -133,6 +136,7 @@ class AuthRepoImpl implements AuthRepo {
       } else {
         await addUserData(user: userModel);
       }
+      await saveUserData(user: userModel);
       return Right(userModel);
     } catch (e) {
       await deleteUser(user);
