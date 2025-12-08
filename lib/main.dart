@@ -7,15 +7,16 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'core/databases/cach_helper.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/service_locator.dart';
+import 'core/utils/app_keys.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   //* Supabase initialization
   await Supabase.initialize(
-    url: 'https://cxnyjymtbjeorfgnvbcx.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4bnlqeW10Ymplb3JmZ252YmN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyNTgzMjMsImV4cCI6MjA3OTgzNDMyM30.aqan6QNu4aKqOCfcBKBgsTSSJDuIG93aE9a9cG-XmTU',
+    url: AppKeys.supabaseUrl,
+    anonKey: AppKeys.supabaseAnonKey,
   );
 
   //* Firebase initialization
