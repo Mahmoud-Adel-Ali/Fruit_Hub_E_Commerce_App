@@ -17,6 +17,7 @@ class ProductModel {
   final int unitAmount;
   final num avarageRating;
   final int ratingCount;
+  final int sellingCount;
   final List<ReviewModel> reviews;
 
   const ProductModel({
@@ -33,6 +34,7 @@ class ProductModel {
     required this.unitAmount,
     this.avarageRating = 0,
     this.ratingCount = 0,
+    this.sellingCount = 0,
     this.reviews = const [],
   });
 
@@ -50,6 +52,7 @@ class ProductModel {
     int? unitAmount,
     num? avarageRating,
     int? ratingCount,
+    int? sellingCount,
     List<ReviewModel>? reviews,
   }) {
     return ProductModel(
@@ -66,6 +69,7 @@ class ProductModel {
       unitAmount: unitAmount ?? this.unitAmount,
       avarageRating: avarageRating ?? this.avarageRating,
       ratingCount: ratingCount ?? this.ratingCount,
+      sellingCount: sellingCount ?? this.sellingCount,
       reviews: reviews ?? this.reviews,
     );
   }
@@ -84,6 +88,7 @@ class ProductModel {
       'unitAmount': unitAmount,
       'avarageRating': avarageRating,
       'ratingCount': ratingCount,
+      'sellingCount': sellingCount,
       'reviews': reviews.map((item) => item.toJson()).toList(),
     };
   }
@@ -105,6 +110,32 @@ class ProductModel {
       avarageRating: entity.avarageRating,
       ratingCount: entity.ratingCount,
       reviews: entity.reviews.map((x) => ReviewModel.fromEntity(x)).toList(),
+    );
+  }
+
+  factory ProductModel.fromJson(Map<String, dynamic> map) {
+    return ProductModel(
+      name: map['name'] as String,
+      price: map['price'] as num,
+      code: map['code'] as String,
+      description: map['description'] as String,
+      image: File(map['image']),
+      isFeatured: map['isFeatured'] as bool,
+      imgUrl: map['imgUrl'] != null ? map['imgUrl'] as String : null,
+      expirationMonths: map['expirationMonths'] as int,
+      isOrganic: map['isOrganic'] as bool,
+      numOfCalories: map['numOfCalories'] as int,
+      unitAmount: map['unitAmount'] as int,
+      avarageRating: map['avarageRating'] as num,
+      ratingCount: map['ratingCount'] as int,
+      sellingCount: map['sellingCount'] as int,
+      reviews: map['reviews'] == null
+          ? []
+          : List<ReviewModel>.from(
+              (map['reviews']).map(
+                (x) => ReviewModel.fromJson(x as Map<String, dynamic>),
+              ),
+            ),
     );
   }
 }
