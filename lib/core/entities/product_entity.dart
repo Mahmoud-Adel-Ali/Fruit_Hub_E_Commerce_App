@@ -1,5 +1,6 @@
 import 'dart:io' show File;
 
+import '../models/product_model.dart';
 import 'review_entity.dart';
 
 class ProductEntity {
@@ -66,6 +67,25 @@ class ProductEntity {
       avarageRating: avarageRating ?? this.avarageRating,
       ratingCount: ratingCount ?? this.ratingCount,
       reviews: reviews ?? this.reviews,
+    );
+  }
+
+  factory ProductEntity.fromModel(ProductModel product) {
+    return ProductEntity(
+      name: product.name,
+      price: product.price,
+      code: product.code,
+      description: product.description,
+      image: product.image,
+      isFeatured: product.isFeatured,
+      expirationMonths: product.expirationMonths,
+      isOrganic: product.isOrganic,
+      numOfCalories: product.numOfCalories,
+      unitAmount: product.unitAmount,
+      avarageRating: product.avarageRating,
+      imgUrl: product.imgUrl,
+      ratingCount: product.ratingCount,
+      reviews: product.reviews.map((e) => ReviewEntity.fromModel(e)).toList(),
     );
   }
 }
