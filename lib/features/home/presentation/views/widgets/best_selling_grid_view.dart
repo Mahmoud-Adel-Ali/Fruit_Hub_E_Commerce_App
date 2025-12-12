@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/entities/product_entity.dart';
+import '../../../../../core/helper_functions/get_dummy_product.dart';
 import '../../../../../core/widgets/fruit_item.dart';
 
 class BestSellingGridView extends StatelessWidget {
@@ -14,6 +15,7 @@ class BestSellingGridView extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
+      // TODO : show real item count here
       itemCount: 6,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -22,7 +24,9 @@ class BestSellingGridView extends StatelessWidget {
         childAspectRatio: 3 / 4,
       ),
       itemBuilder: (context, index) {
-        return const FruitItem();
+        //TODO : remove dummy product and add real product later.
+        // final product = products[index];
+        return FruitItem(product: getDummyProduct);
       },
     );
   }

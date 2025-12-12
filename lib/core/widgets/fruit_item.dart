@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../entities/product_entity.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_images.dart';
 import '../utils/app_text_styles.dart';
@@ -7,8 +8,10 @@ import 'custom_circular_button.dart';
 import 'favorit_icon.dart';
 
 class FruitItem extends StatelessWidget {
-  const FruitItem({super.key});
+  const FruitItem({super.key, required this.product});
+  final ProductEntity product;
 
+  // TODO: Show Product Details here.
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,8 +29,19 @@ class FruitItem extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: 20),
-                Image.asset(Assets.imagesTestFruitImage),
-                Expanded(child: const SizedBox(height: 24)),
+                Expanded(
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return Image.asset(
+                        Assets.imagesTestFruitImage,
+                        fit: BoxFit.contain,
+                        height: constraints.maxHeight,
+                        width: constraints.maxWidth,
+                      );
+                    },
+                  ),
+                ),
+                const SizedBox(height: 18),
                 ListTile(
                   contentPadding: const EdgeInsets.all(0),
                   title: Text('فراولة', style: AppTextStyles.semiBold13),
