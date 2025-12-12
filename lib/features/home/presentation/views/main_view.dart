@@ -1,21 +1,50 @@
 import 'package:flutter/material.dart';
 
+import 'home_view.dart';
+import 'products_view.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
-import 'widgets/home_view_app_bar.dart';
-import 'widgets/home_view.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
   static const routeName = 'home_view';
+
+  @override
+  Widget build(BuildContext context) {
+    return const MainViewBody();
+  }
+}
+
+class MainViewBody extends StatefulWidget {
+  const MainViewBody({super.key});
+
+  @override
+  State<MainViewBody> createState() => _MainViewBodyState();
+}
+
+class _MainViewBodyState extends State<MainViewBody> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Home View App Bar
-      appBar: homeViewAppBar(),
       // Home View Body
-      body: const HomeView(),
+      body: getCurrentView(),
       // custom bottom navigation bar
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onItemTapped: (index) {
+          currentIndex = index;
+          setState(() {});
+        },
+      ),
     );
+  }
+
+  Widget getCurrentView() {
+    return [
+      const HomeView(), // Home View
+      const ProductsView(), // Products View
+      const HomeView(), // Cart View
+      const HomeView(), // Profile View
+    ][currentIndex];
   }
 }

@@ -6,26 +6,32 @@ import '../utils/app_images.dart';
 import '../utils/app_text_styles.dart';
 import 'notifications_icon_widget.dart';
 
-AppBar customAppBar(BuildContext context, {required String title}) {
+AppBar customAppBar(
+  BuildContext context, {
+  required String title,
+  bool showBack = true,
+}) {
   return AppBar(
     backgroundColor: AppColors.white,
     flexibleSpace: Container(color: AppColors.white),
     centerTitle: true,
     actions: [NotificationsIconwidget()],
-    leading: Container(
-      margin: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
-      decoration: ShapeDecoration(
-        color: AppColors.white,
-        shape: OvalBorder(
-          side: BorderSide(width: 1, color: const Color(0xFFF1F1F5)),
-        ),
-      ),
-      child: IconButton(
-        icon: SvgPicture.asset(Assets.imagesArrowBackIcon),
-        padding: EdgeInsets.zero,
-        onPressed: () => Navigator.pop(context),
-      ),
-    ),
+    leading: showBack
+        ? Container(
+            margin: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
+            decoration: ShapeDecoration(
+              color: AppColors.white,
+              shape: OvalBorder(
+                side: BorderSide(width: 1, color: const Color(0xFFF1F1F5)),
+              ),
+            ),
+            child: IconButton(
+              icon: SvgPicture.asset(Assets.imagesArrowBackIcon),
+              padding: EdgeInsets.zero,
+              onPressed: () => Navigator.pop(context),
+            ),
+          )
+        : null,
     title: Text(
       title,
       textAlign: TextAlign.center,
