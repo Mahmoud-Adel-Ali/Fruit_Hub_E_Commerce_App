@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../best_selling_fruits/presentation/views/best_selling_view.dart';
+import '../best_selling_view.dart';
 
 class BestSellingHeader extends StatelessWidget {
   const BestSellingHeader({super.key});

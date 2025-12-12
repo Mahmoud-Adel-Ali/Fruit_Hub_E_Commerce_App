@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/cubits/products/products_cubit.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
-import 'best_selling_grid_view_bloc_builder.dart';
-import 'best_selling_header.dart';
+import '../../../../best_selling_fruits/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
+import '../../../../best_selling_fruits/presentation/views/widgets/best_selling_header.dart';
 import 'featured_fruit_items.dart';
 
 class HomeViewBody extends StatefulWidget {
