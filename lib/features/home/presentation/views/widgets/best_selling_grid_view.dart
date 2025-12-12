@@ -6,7 +6,9 @@ import '../../../../../core/widgets/fruit_item.dart';
 class BestSellingGridView extends StatelessWidget {
   const BestSellingGridView({super.key, required this.products});
   final List<ProductEntity> products;
-
+  // TODO : i'm not view the products , because firestore is not active.
+  // then, after changing to supabase then back to show this
+  // video 160 , 161 [are skipped].
   @override
   Widget build(BuildContext context) {
     return GridView.builder(

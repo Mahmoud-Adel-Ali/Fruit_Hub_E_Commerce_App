@@ -8,7 +8,6 @@ class ProductEntity {
   final num price;
   final String code;
   final String description;
-  final File image;
   final bool isFeatured;
   final String? imgUrl;
   final int expirationMonths;
@@ -24,7 +23,6 @@ class ProductEntity {
     required this.price,
     required this.code,
     required this.description,
-    required this.image,
     required this.isFeatured,
     this.imgUrl,
     required this.expirationMonths,
@@ -57,7 +55,6 @@ class ProductEntity {
       price: price ?? this.price,
       code: code ?? this.code,
       description: description ?? this.description,
-      image: image ?? this.image,
       isFeatured: isFeatured ?? this.isFeatured,
       imgUrl: imgUrl ?? this.imgUrl,
       expirationMonths: expirationMonths ?? this.expirationMonths,
@@ -76,7 +73,6 @@ class ProductEntity {
       price: product.price,
       code: product.code,
       description: product.description,
-      image: product.image,
       isFeatured: product.isFeatured,
       expirationMonths: product.expirationMonths,
       isOrganic: product.isOrganic,

@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import '../entities/product_entity.dart';
+import '../helper_functions/get_avg_rating.dart';
 import 'review_model.dart';
 
 class ProductModel {
@@ -8,7 +7,6 @@ class ProductModel {
   final num price;
   final String code;
   final String description;
-  final File image;
   final bool isFeatured;
   final String? imgUrl;
   final int expirationMonths;
@@ -25,7 +23,6 @@ class ProductModel {
     required this.price,
     required this.code,
     required this.description,
-    required this.image,
     required this.isFeatured,
     this.imgUrl,
     required this.expirationMonths,
@@ -43,7 +40,6 @@ class ProductModel {
     num? price,
     String? code,
     String? description,
-    File? image,
     bool? isFeatured,
     String? imgUrl,
     int? expirationMonths,
@@ -60,7 +56,6 @@ class ProductModel {
       price: price ?? this.price,
       code: code ?? this.code,
       description: description ?? this.description,
-      image: image ?? this.image,
       isFeatured: isFeatured ?? this.isFeatured,
       imgUrl: imgUrl ?? this.imgUrl,
       expirationMonths: expirationMonths ?? this.expirationMonths,
@@ -100,7 +95,6 @@ class ProductModel {
       price: entity.price,
       code: entity.code,
       description: entity.description,
-      image: entity.image,
       isFeatured: entity.isFeatured,
       imgUrl: entity.imgUrl,
       expirationMonths: entity.expirationMonths,
@@ -113,29 +107,33 @@ class ProductModel {
     );
   }
 
-  factory ProductModel.fromJson(Map<String, dynamic> map) {
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
-      name: map['name'] as String,
-      price: map['price'] as num,
-      code: map['code'] as String,
-      description: map['description'] as String,
-      image: File(map['image']),
-      isFeatured: map['isFeatured'] as bool,
-      imgUrl: map['imgUrl'] != null ? map['imgUrl'] as String : null,
-      expirationMonths: map['expirationMonths'] as int,
-      isOrganic: map['isOrganic'] as bool,
-      numOfCalories: map['numOfCalories'] as int,
-      unitAmount: map['unitAmount'] as int,
-      avarageRating: map['avarageRating'] as num,
-      ratingCount: map['ratingCount'] as int,
-      sellingCount: map['sellingCount'] as int,
-      reviews: map['reviews'] == null
-          ? []
-          : List<ReviewModel>.from(
-              (map['reviews']).map(
-                (x) => ReviewModel.fromJson(x as Map<String, dynamic>),
-              ),
-            ),
+      name: json['name'] as String,
+      price: json['price'] as num,
+      code: json['code'] as String,
+      description: json['description'] as String,
+      isFeatured: json['isFeatured'] as bool,
+      imgUrl: json['imgUrl'] != null ? json['imgUrl'] as String : null,
+      expirationMonths: json['expirationMonths'] as int,
+      isOrganic: json['isOrganic'] as bool,
+      numOfCalories: json['numOfCalories'] as int,
+      unitAmount: json['unitAmount'] as int,
+      // avarageRating: map['avarageRating'] as num,
+      avarageRating: getAvgRating(parseReviewss(json)),
+      ratingCount: json['ratingCount'] as int,
+      sellingCount: json['sellingCount'] as int,
+      reviews: parseReviewss(json),
     );
   }
+}
+
+List<ReviewModel> parseReviewss(Map<String, dynamic> json) {
+  return json['reviews'] == null
+      ? []
+      : List<ReviewModel>.from(
+          (json['reviews']).map(
+            (x) => ReviewModel.fromJson(x as Map<String, dynamic>),
+          ),
+        );
 }

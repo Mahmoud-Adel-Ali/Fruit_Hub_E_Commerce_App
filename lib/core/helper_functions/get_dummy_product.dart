@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import '../entities/product_entity.dart';
 
 ProductEntity getDummyProduct = ProductEntity(
@@ -7,7 +5,6 @@ ProductEntity getDummyProduct = ProductEntity(
   price: 12.5,
   code: "BN-001",
   description: "Fresh organic bananas from local farms.",
-  image: File(""), // example file path
   isFeatured: true,
   imgUrl: null, // will be filled after upload to Supabase
   expirationMonths: 2,
