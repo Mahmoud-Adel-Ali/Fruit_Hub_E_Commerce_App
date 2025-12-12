@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 
 import '../../entities/product_entity.dart';
@@ -22,6 +24,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   Future<void> getBestSellingProducts() async {
     emit(ProductsLoading());
     var result = await repo.getBestSellingProducts();
+    log(result.toString());
     result.fold(
       (failure) => emit(ProductsFailure(message: failure.message)),
       (products) => emit(ProductsSuccess(products: products)),
