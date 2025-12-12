@@ -15,15 +15,9 @@ class ProductsRepoImpl implements ProductsRepo {
   @override
   Future<Either<Failure, List<ProductEntity>>> getBestSellingProducts() async {
     try {
+      var query = {"limit": 10, "orderBy": "sellingCount", 'descending': true};
       var data =
-          await service.getData(
-                path: EndPoints.getProduct,
-                query: {
-                  "limit": 10,
-                  "orderBy": "sellingCount",
-                  'descending': true,
-                },
-              )
+          await service.getData(path: EndPoints.getProduct, query: query)
               as List<Map<String, dynamic>>;
       //* response is List<Map<String , dynamic>>
       var products = data
