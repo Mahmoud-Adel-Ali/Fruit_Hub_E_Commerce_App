@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../constants.dart';
-import '../../../../../core/cubits/products/products_cubit.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_selling_grid_view_bloc_builder.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_selling_header.dart';
@@ -16,12 +14,6 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<ProductsCubit>().getBestSellingProducts();
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/cubits/products/products_cubit.dart';
+import '../../../../core/repos/products_repo/products_repo.dart';
+import '../../../../core/services/service_locator.dart';
 import 'home_view.dart';
 import 'products_view.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
@@ -10,7 +14,14 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MainViewBody();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ProductsCubit(getit.get<ProductsRepo>()),
+        ),
+      ],
+      child: const MainViewBody(),
+    );
   }
 }
 
@@ -22,6 +33,16 @@ class MainViewBody extends StatefulWidget {
 }
 
 class _MainViewBodyState extends State<MainViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ProductsCubit>()
+      ..getProducts()
+      ..getBestSellingProducts();
+  }
+
+  //*__________________________________________________________
+
   int currentIndex = 0;
 
   @override

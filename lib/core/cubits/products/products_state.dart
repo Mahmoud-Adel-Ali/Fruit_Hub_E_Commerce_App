@@ -15,3 +15,15 @@ class ProductsSuccess extends ProductsState {
   final List<ProductEntity> products;
   ProductsSuccess({required this.products});
 }
+
+class BestProductsLoading extends ProductsState {}
+
+class BestProductsFailure extends ProductsState {
+  final String message;
+  BestProductsFailure({required this.message});
+}
+
+class BestProductsSuccess extends ProductsState {
+  final List<ProductEntity> products;
+  BestProductsSuccess({required this.products});
+}

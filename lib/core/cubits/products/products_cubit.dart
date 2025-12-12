@@ -22,12 +22,12 @@ class ProductsCubit extends Cubit<ProductsState> {
   }
 
   Future<void> getBestSellingProducts() async {
-    emit(ProductsLoading());
+    emit(BestProductsLoading());
     var result = await repo.getBestSellingProducts();
     log(result.toString());
     result.fold(
-      (failure) => emit(ProductsFailure(message: failure.message)),
-      (products) => emit(ProductsSuccess(products: products)),
+      (failure) => emit(BestProductsFailure(message: failure.message)),
+      (products) => emit(BestProductsSuccess(products: products)),
     );
   }
 }

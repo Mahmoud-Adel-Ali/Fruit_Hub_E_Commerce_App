@@ -12,7 +12,7 @@ class BestSellingView extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, title: 'الأكثر مبيعًا'),
       // TODO : get real products and show them
-      body: BestSellingGridView(products: []),
+      body: SingleChildScrollView(child: BestSellingGridView(products: [])),
     );
   }
 }
