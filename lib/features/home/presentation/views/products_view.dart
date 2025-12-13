@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
-import 'widgets/productsf_view_body.dart';
+import 'widgets/products_view_body.dart';
 
 class ProductsView extends StatelessWidget {
   const ProductsView({super.key});

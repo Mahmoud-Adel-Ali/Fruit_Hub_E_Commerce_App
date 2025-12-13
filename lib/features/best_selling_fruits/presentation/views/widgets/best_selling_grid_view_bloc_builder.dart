@@ -17,7 +17,12 @@ class BestSellingGridViewBlocBuilder extends StatelessWidget {
         if (state is BestProductsSuccess) {
           return BestSellingGridView(products: state.products);
         } else if (state is BestProductsFailure) {
-          return CustomErrorWidget(msg: state.message);
+          return CustomErrorWidget(
+            msg: state.message,
+            onRetry: () {
+              context.read<BestProductsCubit>().getBestSellingProducts();
+            },
+          );
         } else {
           //* Loading state
           return Skeletonizer(

@@ -3,5 +3,5 @@ abstract class EndPoints {
   static const String getUsersData = 'Users';
   static const String isUserExists = 'Users';
 
-  static const String getProduct = "products";
+  static const String getProduct = "Products";
 }
