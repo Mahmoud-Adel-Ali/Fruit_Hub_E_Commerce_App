@@ -1,28 +1,26 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/widgets/custom_section_header.dart';
 import '../best_selling_view.dart';
+import 'best_selling_grid_view_bloc_builder.dart';
 
-class BestSellingHeader extends StatelessWidget {
-  const BestSellingHeader({super.key});
+class BestSellingSection extends StatelessWidget {
+  const BestSellingSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Text("الاكثر مبيعا", style: AppTextStyles.semiBold16),
-        TextButton(
+        CustomSectionHeader(
+          title: "الاكثر مبيعا",
+          trilling: Text("المزيد", style: AppTextStyles.semiBold13),
           onPressed: () {
             Navigator.pushNamed(context, BestSellingView.routeName);
           },
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.zero,
-            minimumSize: Size.zero,
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          ),
-          child: Text("المزيد", style: AppTextStyles.semiBold13),
         ),
+        SizedBox(height: 8),
+        BestSellingGridViewBlocBuilder(),
       ],
     );
   }

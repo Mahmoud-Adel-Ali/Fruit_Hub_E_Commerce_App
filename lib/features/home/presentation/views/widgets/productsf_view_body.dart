@@ -3,28 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../../constants.dart';
 import '../../../../../core/widgets/custom_search_field.dart';
 import '../../../../best_selling_fruits/presentation/views/widgets/best_selling_header.dart';
-import 'featured_fruit_items.dart';
 
-class HomeViewBody extends StatefulWidget {
-  const HomeViewBody({super.key});
+class ProductsViewBody extends StatelessWidget {
+  const ProductsViewBody({super.key});
 
-  @override
-  State<HomeViewBody> createState() => _HomeViewBodyState();
-}
-
-class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
         child: Column(
-          spacing: 12,
-          children: const [
+          children: [
             SizedBox(height: kTopPadding),
             CustomSearchField(),
-            SizedBox(height: 12),
-            FeaturedFruitItems(),
             SizedBox(height: 12),
             BestSellingSection(),
             SizedBox(height: 12),
@@ -34,4 +25,3 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     );
   }
 }
-
