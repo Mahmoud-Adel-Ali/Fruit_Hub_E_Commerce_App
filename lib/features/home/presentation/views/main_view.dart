@@ -37,6 +37,8 @@ class MainViewBody extends StatefulWidget {
 }
 
 class _MainViewBodyState extends State<MainViewBody> {
+  //*__________________________________________________________
+
   @override
   void initState() {
     super.initState();
@@ -52,7 +54,15 @@ class _MainViewBodyState extends State<MainViewBody> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Home View Body
-      body: getCurrentView(),
+      body: IndexedStack(
+        index: currentIndex,
+        children: [
+          const HomeView(), // Home View
+          const ProductsView(), // Products View
+          const HomeView(), // Cart View
+          const HomeView(), // Profile View
+        ],
+      ),
       // custom bottom navigation bar
       bottomNavigationBar: CustomBottomNavigationBar(
         onItemTapped: (index) {
@@ -61,14 +71,5 @@ class _MainViewBodyState extends State<MainViewBody> {
         },
       ),
     );
-  }
-
-  Widget getCurrentView() {
-    return [
-      const HomeView(), // Home View
-      const ProductsView(), // Products View
-      const HomeView(), // Cart View
-      const HomeView(), // Profile View
-    ][currentIndex];
   }
 }
