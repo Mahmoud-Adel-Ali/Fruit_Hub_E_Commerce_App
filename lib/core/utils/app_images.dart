@@ -30,6 +30,8 @@ class Assets {
 
   static const String imagesFilterIcon = "assets/images/filter_icon.svg";
 
+  static const String imagesFilterIcon2 = "assets/images/filter_icon_2.svg";
+
   static const String imagesGoogleIcon = "assets/images/google_icon.svg";
 
   static const String imagesInActiveCartIcon = "assets/images/in_active_cart_icon.svg";
