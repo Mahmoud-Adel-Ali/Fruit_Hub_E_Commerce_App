@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../entities/product_entity.dart';
 import '../utils/app_colors.dart';
-import '../utils/app_images.dart';
 import '../utils/app_text_styles.dart';
+import 'custom_cached_network_image.dart';
 import 'custom_circular_button.dart';
 import 'favorit_icon.dart';
 
@@ -11,7 +11,6 @@ class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.product});
   final ProductEntity product;
 
-  // TODO: Show Product Details here.
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,9 +31,9 @@ class FruitItem extends StatelessWidget {
                 Expanded(
                   child: LayoutBuilder(
                     builder: (context, constraints) {
-                      return Image.asset(
-                        Assets.imagesTestFruitImage,
-                        fit: BoxFit.contain,
+                      return CustomCachedNetworkImage(
+                        url: product.imgUrl,
+                        fit: BoxFit.scaleDown,
                         height: constraints.maxHeight,
                         width: constraints.maxWidth,
                       );
@@ -44,18 +43,18 @@ class FruitItem extends StatelessWidget {
                 const SizedBox(height: 18),
                 ListTile(
                   contentPadding: const EdgeInsets.all(0),
-                  title: Text('فراولة', style: AppTextStyles.semiBold13),
+                  title: Text(product.name, style: AppTextStyles.semiBold13),
                   subtitle: Text.rich(
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: '30جنية',
+                          text: ' ${product.price.toInt()} جنية',
                           style: AppTextStyles.bold13.copyWith(
                             color: AppColors.secondaryColor,
                           ),
                         ),
                         TextSpan(
-                          text: ' / ',
+                          text: '/',
                           style: AppTextStyles.bold13.copyWith(
                             color: AppColors.lightSecondaryColor,
                           ),
