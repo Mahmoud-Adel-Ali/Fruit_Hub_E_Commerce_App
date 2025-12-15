@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'cart_item_entity.dart';
 
 class CartEntity {
@@ -33,4 +34,7 @@ class CartEntity {
   //* Check the item in cart
   bool isItemInCart(CartItemEntity cartItem) =>
       cartItems.any((item) => item.product.code == cartItem.product.code);
+
+  @override
+  String toString() => 'CartEntity(cartItems: $cartItems)';
 }

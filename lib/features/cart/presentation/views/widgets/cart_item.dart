@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/cubits/cart/cart_cubit.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -66,8 +66,13 @@ class CartItem extends StatelessWidget {
                       contentPadding: EdgeInsets.zero,
                       title: FruitCounter(
                         initialValue: cartItem.quantity,
-                        onChanged: (value) {
-                          log(value.toString());
+                        onAdd: (value) {
+                          context.read<CartCubit>().addItemToCart(cartItem);
+                        },
+                        onRemove: (value) {
+                          context.read<CartCubit>().decreaseItemQuantity(
+                            cartItem,
+                          );
                         },
                       ),
                       trailing: Text(

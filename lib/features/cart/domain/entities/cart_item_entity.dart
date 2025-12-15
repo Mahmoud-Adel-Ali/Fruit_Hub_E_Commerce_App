@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import '../../../../core/entities/product_entity.dart';
 
 class CartItemEntity {
@@ -9,8 +10,8 @@ class CartItemEntity {
   num get totalPrice => product.price * quantity;
   num get totalWeight => product.unitAmount * quantity;
 
-  CartItemEntity increaseQuantity() => copyWith(quantity: quantity + 1);
-  CartItemEntity decreaseQuantity() => copyWith(quantity: quantity - 1);
+  int increaseQuantity() => quantity++;
+  int decreaseQuantity() => quantity--;
 
   CartItemEntity copyWith({int? quantity, ProductEntity? product}) {
     return CartItemEntity(
@@ -18,4 +19,7 @@ class CartItemEntity {
       product: product ?? this.product,
     );
   }
+
+  @override
+  String toString() => 'CartItemEntity(quantity: $quantity, product: $product)';
 }

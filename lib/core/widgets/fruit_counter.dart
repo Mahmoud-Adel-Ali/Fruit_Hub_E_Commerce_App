@@ -5,9 +5,14 @@ import '../utils/app_text_styles.dart';
 import 'custom_circular_button.dart';
 
 class FruitCounter extends StatefulWidget {
-  const FruitCounter({super.key, this.initialValue = 1, this.onChanged});
+  const FruitCounter({
+    super.key,
+    this.initialValue = 1,
+    this.onAdd,
+    this.onRemove,
+  });
   final int initialValue;
-  final ValueChanged<int>? onChanged;
+  final ValueChanged<int>? onAdd, onRemove;
 
   @override
   State<FruitCounter> createState() => _FruitCounterState();
@@ -22,10 +27,14 @@ class _FruitCounterState extends State<FruitCounter> {
     value = widget.initialValue;
   }
 
-  void changeValue(int v) {
-    value = v;
-    setState(() {});
-    widget.onChanged!(value);
+  void onAdd() {
+    widget.onAdd?.call(value + 1);
+    setState(() => value++);
+  }
+
+  void onRemove() {
+    widget.onRemove?.call(value - 1);
+    setState(() => value--);
   }
 
   @override
@@ -39,20 +48,14 @@ class _FruitCounterState extends State<FruitCounter> {
     return Row(
       spacing: 6,
       children: [
-        CustomCircularButton(
-          onPressed: () {
-            changeValue(value + 1);
-          },
-        ),
+        CustomCircularButton(onPressed: () => onAdd()),
         Text(
           value.toString(),
           style: AppTextStyles.bold16.copyWith(color: AppColors.black),
         ),
         CustomCircularButton(
           onPressed: () {
-            if (value > 1) {
-              changeValue(value - 1);
-            }
+            if (value > 1) onRemove();
           },
           icon: Icons.remove,
           color: AppColors.lightGrey,
