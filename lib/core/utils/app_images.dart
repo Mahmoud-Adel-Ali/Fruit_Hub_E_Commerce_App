@@ -58,6 +58,8 @@ class Assets {
 
   static const String imagesProfileImage = "assets/images/profile_image.png";
 
+  static const String imagesRemoveIcon = "assets/images/remove_icon.svg";
+
   static const String imagesSearchIcon = "assets/images/search_icon.svg";
 
   static const String imagesSplashBottomDots = "assets/images/splash_bottom_dots.svg";
