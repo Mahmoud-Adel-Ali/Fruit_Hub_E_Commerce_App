@@ -7,6 +7,7 @@ import '../../../../../core/cubits/cart/cart_cubit.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/widgets/dialog_helper.dart';
 import '../../../../../core/widgets/fruit_counter.dart';
 import '../../../domain/entities/cart_item_entity.dart';
 import 'cart_item_image.dart';
@@ -58,8 +59,15 @@ class CartItem extends StatelessWidget {
                       ),
                       trailing: IconButton(
                         onPressed: () {
-                          context.read<CartCubit>().removeItemFromCart(
-                            cartItem,
+                          DialogHelper.showQuestionDialog(
+                            context,
+                            title: "تأكيد الحذف",
+                            desc: "هل أنت متأكد من حذف هذا المنتج من السلة؟",
+                            onOk: () {
+                              context.read<CartCubit>().removeItemFromCart(
+                                cartItem,
+                              );
+                            },
                           );
                         },
                         icon: SvgPicture.asset(Assets.imagesRemoveIcon),
