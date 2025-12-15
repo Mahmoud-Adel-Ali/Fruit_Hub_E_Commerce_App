@@ -84,4 +84,39 @@ class ProductEntity {
       reviews: product.reviews.map((e) => ReviewEntity.fromModel(e)).toList(),
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is ProductEntity &&
+          name == other.name &&
+          price == other.price &&
+          code == other.code
+  // &&
+  // description == other.description &&
+  // isFeatured == other.isFeatured &&
+  // imgUrl == other.imgUrl &&
+  // expirationMonths == other.expirationMonths &&
+  // isOrganic == other.isOrganic &&
+  // numOfCalories == other.numOfCalories &&
+  // unitAmount == other.unitAmount &&
+  // avarageRating == other.avarageRating &&
+  // ratingCount == other.ratingCount
+  ;
+
+  @override
+  int get hashCode => Object.hash(
+    name,
+    price,
+    code,
+    description,
+    isFeatured,
+    imgUrl,
+    expirationMonths,
+    isOrganic,
+    numOfCalories,
+    unitAmount,
+    avarageRating,
+    ratingCount,
+  );
 }
