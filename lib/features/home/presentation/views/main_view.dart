@@ -5,6 +5,7 @@ import '../../../../core/cubits/best_products/best_products_cubit.dart';
 import '../../../../core/cubits/products/products_cubit.dart';
 import '../../../../core/repos/products_repo/products_repo.dart';
 import '../../../../core/services/service_locator.dart';
+import '../../../cart/presentation/views/cart_view.dart';
 import 'home_view.dart';
 import 'products_view.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
@@ -59,7 +60,7 @@ class _MainViewBodyState extends State<MainViewBody> {
         children: [
           const HomeView(), // Home View
           const ProductsView(), // Products View
-          const HomeView(), // Cart View
+          const CartView(), // Cart View
           const HomeView(), // Profile View
         ],
       ),
