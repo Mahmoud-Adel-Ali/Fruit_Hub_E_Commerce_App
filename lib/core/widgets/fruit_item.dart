@@ -9,6 +9,7 @@ import '../utils/app_text_styles.dart';
 import 'custom_cached_network_image.dart';
 import 'custom_circular_button.dart';
 import 'favorit_icon.dart';
+import 'toast_helper.dart';
 
 class FruitItem extends StatelessWidget {
   const FruitItem({super.key, required this.product});
@@ -73,9 +74,12 @@ class FruitItem extends StatelessWidget {
                   ),
                   trailing: CustomCircularButton(
                     onPressed: () {
-                      //TODO: add toast message here
                       context.read<CartCubit>().addItemToCart(
                         CartItemEntity(product: product, quantity: 1),
+                      );
+                      //*Show toast message here
+                      ToastHelper.showSuccessToast(
+                        'تم اضافه المنتج الي السلة بنجاح!',
                       );
                     },
                   ),
