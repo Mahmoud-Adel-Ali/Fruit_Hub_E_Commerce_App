@@ -35,6 +35,14 @@ class CartEntity {
   bool isItemInCart(CartItemEntity cartItem) =>
       cartItems.any((item) => item.product.code == cartItem.product.code);
 
+  num calcTotalPrice() {
+    num totalPrice = 0;
+    for (var item in cartItems) {
+      totalPrice += item.totalPrice;
+    }
+    return totalPrice;
+  }
+
   @override
   String toString() => 'CartEntity(cartItems: $cartItems)';
 }

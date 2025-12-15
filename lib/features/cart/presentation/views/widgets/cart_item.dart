@@ -57,7 +57,11 @@ class CartItem extends StatelessWidget {
                         ),
                       ),
                       trailing: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.read<CartCubit>().removeItemFromCart(
+                            cartItem,
+                          );
+                        },
                         icon: SvgPicture.asset(Assets.imagesRemoveIcon),
                       ),
                     ),
