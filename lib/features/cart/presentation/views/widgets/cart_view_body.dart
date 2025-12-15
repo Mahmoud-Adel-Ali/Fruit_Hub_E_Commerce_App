@@ -15,7 +15,7 @@ class CartViewBody extends StatelessWidget {
           CartViewHeader(productsLength: 3),
           SizedBox(height: 24),
           Divider(color: AppColors.lightGrey, thickness: 1, height: 0),
-          CartItemsListView(),
+          CartItemsListView(cartItems: []),
         ],
       ),
     );

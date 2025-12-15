@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_images.dart';
+import '../../../../../core/widgets/custom_cached_network_image.dart';
+import '../../../domain/entities/cart_item_entity.dart';
 
 class CartItemImage extends StatelessWidget {
-  const CartItemImage({super.key});
+  const CartItemImage({super.key, required this.cartItem});
+  final CartItemEntity cartItem;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class CartItemImage extends StatelessWidget {
       width: width * 0.25,
       height: double.infinity,
       decoration: const BoxDecoration(color: AppColors.lightGreyWithOpacity),
-      child: Image.asset(Assets.imagesTestFruitImage),
+      child: CustomCachedNetworkImage(url: cartItem.product.imgUrl),
     );
   }
 }

@@ -9,6 +9,9 @@ class CartItemEntity {
   num get totalPrice => product.price * quantity;
   num get totalWeight => product.unitAmount * quantity;
 
+  CartItemEntity increaseQuantity() => copyWith(quantity: quantity + 1);
+  CartItemEntity decreaseQuantity() => copyWith(quantity: quantity - 1);
+
   CartItemEntity copyWith({int? quantity, ProductEntity? product}) {
     return CartItemEntity(
       quantity: quantity ?? this.quantity,

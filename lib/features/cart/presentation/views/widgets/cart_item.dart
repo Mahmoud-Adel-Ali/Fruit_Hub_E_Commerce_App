@@ -8,10 +8,12 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/fruit_counter.dart';
+import '../../../domain/entities/cart_item_entity.dart';
 import 'cart_item_image.dart';
 
 class CartItem extends StatelessWidget {
-  const CartItem({super.key});
+  const CartItem({super.key, required this.cartItem});
+  final CartItemEntity cartItem;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class CartItem extends StatelessWidget {
         child: Row(
           children: [
             //* image
-            CartItemImage(),
+            CartItemImage(cartItem: cartItem),
             //* description
             Expanded(
               child: Container(
@@ -43,13 +45,13 @@ class CartItem extends StatelessWidget {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       title: Text(
-                        "فراولة",
+                        cartItem.product.name,
                         style: AppTextStyles.bold16.copyWith(
                           color: AppColors.primaryColor,
                         ),
                       ),
                       subtitle: Text(
-                        "3 كيلو",
+                        "${cartItem.totalWeight} كيلو",
                         style: AppTextStyles.bold13.copyWith(
                           color: AppColors.secondaryColor,
                         ),
@@ -63,12 +65,13 @@ class CartItem extends StatelessWidget {
                     ListTile(
                       contentPadding: EdgeInsets.zero,
                       title: FruitCounter(
+                        initialValue: cartItem.quantity,
                         onChanged: (value) {
                           log(value.toString());
                         },
                       ),
                       trailing: Text(
-                        "60 جنيه",
+                        "${cartItem.totalPrice} جنيه",
                         style: AppTextStyles.bold16.copyWith(
                           color: AppColors.secondaryColor,
                         ),
