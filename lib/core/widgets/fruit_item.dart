@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -75,7 +73,7 @@ class FruitItem extends StatelessWidget {
                   ),
                   trailing: CustomCircularButton(
                     onPressed: () {
-                      log("Add to cart , ${product.name} ${product.code}");
+                      //TODO: add toast message here
                       context.read<CartCubit>().addItemToCart(
                         CartItemEntity(product: product, quantity: 1),
                       );
