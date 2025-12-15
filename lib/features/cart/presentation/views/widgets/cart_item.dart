@@ -9,6 +9,7 @@ import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/dialog_helper.dart';
 import '../../../../../core/widgets/fruit_counter.dart';
+import '../../../../../core/widgets/toast_helper.dart';
 import '../../../domain/entities/cart_item_entity.dart';
 import 'cart_item_image.dart';
 
@@ -66,6 +67,9 @@ class CartItem extends StatelessWidget {
                             onOk: () {
                               context.read<CartCubit>().removeItemFromCart(
                                 cartItem,
+                              );
+                              ToastHelper.showErrorToast(
+                                "تم حذف المنتج من السلة",
                               );
                             },
                           );

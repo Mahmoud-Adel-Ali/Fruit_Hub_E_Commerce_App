@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../utils/app_colors.dart';
@@ -11,7 +12,7 @@ class ToastHelper {
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: Colors.green.shade900,
       textColor: AppColors.white,
       fontSize: 16.0,
     );
@@ -25,7 +26,7 @@ class ToastHelper {
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 1,
-      backgroundColor: AppColors.red,
+      backgroundColor: Colors.red.shade900,
       textColor: AppColors.white,
       fontSize: 16.0,
     );
