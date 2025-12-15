@@ -1,5 +1,10 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../features/cart/domain/entities/cart_item_entity.dart';
+import '../cubits/cart/cart_cubit.dart';
 import '../entities/product_entity.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text_styles.dart';
@@ -68,7 +73,14 @@ class FruitItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  trailing: CustomCircularButton(onPressed: () {}),
+                  trailing: CustomCircularButton(
+                    onPressed: () {
+                      log("Add to cart , ${product.name} ${product.code}");
+                      context.read<CartCubit>().addItemToCart(
+                        CartItemEntity(product: product, quantity: 1),
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
