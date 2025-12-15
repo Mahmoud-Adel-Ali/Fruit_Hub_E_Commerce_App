@@ -16,6 +16,7 @@ class CartViewBody extends StatelessWidget {
         Divider(color: AppColors.lightGrey, thickness: 1, height: 0),
         CartItem(),
         CartItem(),
+        CartItem(),
       ],
     );
   }
