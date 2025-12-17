@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub_e_commerce_app/fruit_hub_app.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'core/cubits/cart/cart_cubit.dart';
 import 'core/databases/cach_helper.dart';
 import 'core/services/custom_bloc_observer.dart';
 import 'core/services/service_locator.dart';
@@ -24,5 +25,14 @@ Future<void> main() async {
   Bloc.observer = CustomBlocObserver();
   setupServicesLocator();
   await getit.get<CacheHelper>().init();
-  runApp(const FruitHubApp());
+
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        //* Cart Cubit :- To handle the cart items and their operations
+        BlocProvider<CartCubit>(create: (context) => CartCubit()),
+      ],
+      child: const FruitHubApp(),
+    ),
+  );
 }

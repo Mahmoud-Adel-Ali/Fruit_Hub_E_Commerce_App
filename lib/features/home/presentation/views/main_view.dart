@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/cubits/best_products/best_products_cubit.dart';
-import '../../../../core/cubits/cart/cart_cubit.dart';
 import '../../../../core/cubits/products/products_cubit.dart';
 import '../../../../core/repos/products_repo/products_repo.dart';
 import '../../../../core/services/service_locator.dart';
@@ -25,7 +24,8 @@ class MainView extends StatelessWidget {
         BlocProvider<BestProductsCubit>(
           create: (context) => BestProductsCubit(getit.get<ProductsRepo>()),
         ),
-        BlocProvider<CartCubit>(create: (context) => CartCubit()),
+        // Provide this cubit in main.dart to access it from anywhere
+        // BlocProvider<CartCubit>(create: (context) => CartCubit()),
       ],
       child: const MainViewBody(),
     );
