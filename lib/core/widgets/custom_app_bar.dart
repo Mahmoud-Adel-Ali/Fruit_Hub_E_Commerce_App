@@ -10,12 +10,13 @@ AppBar customAppBar(
   BuildContext context, {
   required String title,
   bool showBack = true,
+  bool showNotifications = true,
 }) {
   return AppBar(
     backgroundColor: AppColors.white,
     flexibleSpace: Container(color: AppColors.white),
     centerTitle: true,
-    actions: [NotificationsIconwidget()],
+    actions: [if (showNotifications) NotificationsIconwidget()],
     leading: showBack
         ? Container(
             margin: const EdgeInsets.only(right: 16, top: 8, bottom: 8),

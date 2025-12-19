@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/cubits/cart/cart_cubit.dart';
 import '../../../../../core/widgets/custom_button.dart';
+import '../../../../checkout/presentation/views/checkout_view.dart';
 
 class PaymentButton extends StatelessWidget {
   const PaymentButton({super.key});
@@ -21,7 +22,9 @@ class PaymentButton extends StatelessWidget {
               color: Colors.transparent,
               child: CustomButton(
                 text: "الدفع $totalPrice جنيه",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, CheckoutView.routeName);
+                },
               ),
             ),
           ),
