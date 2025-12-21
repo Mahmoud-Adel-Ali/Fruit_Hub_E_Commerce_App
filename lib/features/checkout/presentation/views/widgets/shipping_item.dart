@@ -10,40 +10,50 @@ class ShippingItem extends StatelessWidget {
     required this.subtitle,
     required this.trillingText,
     required this.isSelected,
+    this.onTap,
   });
   final String title, subtitle, trillingText;
   final bool isSelected;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 1.5,
-          color: isSelected ? AppColors.primaryColor : AppColors.lightGrey,
-        ),
-        borderRadius: BorderRadius.circular(16.0),
-      ),
-      child: ListTile(
-        contentPadding: EdgeInsets.zero,
-        title: Text(
-          title,
-          style: AppTextStyles.semiBold16.copyWith(color: Colors.black),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: AppTextStyles.regular13.copyWith(color: Colors.grey),
-        ),
-        trailing: Text(
-          trillingText,
-          style: AppTextStyles.bold13.copyWith(
-            color: AppColors.lightPrimaryColor,
+    return InkWell(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
+        decoration: BoxDecoration(
+          color: AppColors.greyWithShade100,
+          border: Border.all(
+            width: 1.5,
+            color: isSelected ? AppColors.primaryColor : Colors.transparent,
           ),
+          borderRadius: BorderRadius.circular(16.0),
         ),
-        leading: RadioGroup(
-          groupValue: isSelected,
-          onChanged: (value) {},
-          child: Radio(value: isSelected, activeColor: AppColors.primaryColor),
+        child: ListTile(
+          contentPadding: EdgeInsets.zero,
+          title: Text(
+            title,
+            style: AppTextStyles.semiBold16.copyWith(color: Colors.black),
+          ),
+          subtitle: Text(
+            subtitle,
+            style: AppTextStyles.regular13.copyWith(color: Colors.grey),
+          ),
+          trailing: Text(
+            trillingText,
+            style: AppTextStyles.bold13.copyWith(
+              color: AppColors.lightPrimaryColor,
+            ),
+          ),
+          leading: InkWell(
+            onTap: onTap,
+            child: RadioGroup<bool>(
+              groupValue: isSelected,
+              onChanged: (value) {},
+              child: Radio(value: true, activeColor: AppColors.primaryColor),
+            ),
+          ),
         ),
       ),
     );

@@ -15,4 +15,6 @@ abstract class AppColors {
   static const Color green = Colors.green;
   static const Color lightGrey = Color(0xFFDCDEDE);
   static const Color lightGreyWithOpacity = Color(0xFFF3F5F7);
+  // var shade1002 = Colors.grey.shade100;
+  static const Color greyWithShade100 = Color(0xFFF5F5F5);
 }
