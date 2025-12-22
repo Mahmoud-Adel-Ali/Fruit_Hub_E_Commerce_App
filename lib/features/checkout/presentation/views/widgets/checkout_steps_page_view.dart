@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'address_input_section.dart';
+import 'payment_section.dart';
 import 'shipping_section.dart';
 
 class CheckoutStepsPageView extends StatelessWidget {
@@ -27,7 +28,7 @@ class CheckoutStepsPageView extends StatelessWidget {
   List<Widget> pages() => const [
     ShippingSection(),
     AddressInputSection(),
-    SizedBox(), // Payment Section Placeholder
-    SizedBox(), // Review Section Placeholder
+    PaymentSection(),
+    // SizedBox(), // Review Section Placeholder
   ];
 }

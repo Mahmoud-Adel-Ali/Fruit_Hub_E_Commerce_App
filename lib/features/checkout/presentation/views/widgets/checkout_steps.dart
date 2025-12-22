@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'step_item.dart';
 
-List<String> steps = ['الشحن', 'العنوان', 'الدفع', 'المراجعه'];
+List<String> steps = [
+  'الشحن', 'العنوان', 'الدفع',
+  //  'المراجعه'
+];
 
 class CheckoutSteps extends StatelessWidget {
   const CheckoutSteps({super.key});
