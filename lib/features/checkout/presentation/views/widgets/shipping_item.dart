@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
+import '../../../../../core/utils/app_decorations.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 
 class ShippingItem extends StatelessWidget {
@@ -22,14 +23,9 @@ class ShippingItem extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
-        decoration: BoxDecoration(
-          color: AppColors.greyWithShade100,
-          border: Border.all(
-            width: 1.5,
-            color: isSelected ? AppColors.primaryColor : Colors.transparent,
-          ),
-          borderRadius: BorderRadius.circular(16.0),
-        ),
+        decoration: isSelected
+            ? AppDecorations.greyBoxDecorationPrimaryBorder
+            : AppDecorations.greyBoxDecoration,
         child: ListTile(
           contentPadding: EdgeInsets.zero,
           title: Text(
