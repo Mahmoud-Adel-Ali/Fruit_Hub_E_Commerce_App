@@ -10,11 +10,11 @@ abstract class AppColors {
   static const Color hintTextColor = Color(0xFF949D9E);
   static const Color red = Color(0xFFD32F2F);
   static const Color white = Colors.white;
-  static const Color grey = Colors.grey;
+  static var grey = Colors.grey;
   static const Color black = Colors.black;
   static const Color green = Colors.green;
   static const Color lightGrey = Color(0xFFDCDEDE);
   static const Color lightGreyWithOpacity = Color(0xFFF3F5F7);
   // var shade1002 = Colors.grey.shade100;
-  static const Color greyWithShade100 = Color(0xFFF5F5F5);
+  static Color greyWithShade100 = Colors.grey.shade100;
 }
