@@ -98,3 +98,10 @@ bool validatorOfEgyptianPhoneBool(String? value) {
   final isValid = regexPhone.hasMatch(value.trim());
   return isValid;
 }
+
+String? simpleValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'هذا الحقل مطلوب';
+  }
+  return null;
+}
