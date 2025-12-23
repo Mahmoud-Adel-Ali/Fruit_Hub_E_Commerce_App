@@ -50,9 +50,9 @@ class _SignupFormState extends State<SignupForm> {
                 formKey.currentState!.save();
                 if (isTermsAccepted) {
                   context.read<SignupCubit>().createUserWithEmailAndPassword(
-                    name: nameController.text,
-                    email: emailController.text,
-                    password: passwordController.text,
+                    name: nameController.text.trim(),
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
                   );
                 } else {
                   errorDialog(

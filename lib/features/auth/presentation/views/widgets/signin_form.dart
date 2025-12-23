@@ -41,8 +41,8 @@ class _SigninFormState extends State<SigninForm> {
                 autovalidateMode = AutovalidateMode.disabled;
                 formKey.currentState!.save();
                 context.read<SigninCubit>().signIn(
-                  email: emailController.text,
-                  password: passwordController.text,
+                  email: emailController.text.trim(),
+                  password: passwordController.text.trim(),
                 );
               } else {
                 autovalidateMode = AutovalidateMode.always;

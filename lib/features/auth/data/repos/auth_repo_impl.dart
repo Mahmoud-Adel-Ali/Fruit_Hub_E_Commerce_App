@@ -178,9 +178,13 @@ class AuthRepoImpl implements AuthRepo {
 
   @override
   Future<bool> signout() async {
-    var firebaseSignOut = firebaseAuthService.signOut();
-    var cacheClear = getit.get<CacheHelper>().remove(kUserData);
-    await Future.wait([firebaseSignOut, cacheClear]);
-    return true;
+    try {
+      await firebaseAuthService.signOut();
+      var cacheClear = await getit.get<CacheHelper>().remove(kUserData);
+      return cacheClear;
+    } catch (e) {
+      log("Exception in AuthRepoImpl.signout :- $e");
+      return false;
+    }
   }
 }

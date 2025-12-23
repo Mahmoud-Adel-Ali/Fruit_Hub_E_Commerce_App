@@ -11,6 +11,10 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../errors/exceptions.dart';
 
+var checkNetworkMsg = "تَأَكَّدَ مِنْ اَلِاتِّصَالِ بِالْإِنْتَرْنِت.";
+var failToCreateAccountMsg =
+    'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.';
+
 class FirebaseAuthService {
   Future deleteUser() async {
     await FirebaseAuth.instance.currentUser!.delete();
@@ -38,22 +42,16 @@ class FirebaseAuthService {
           message:
               'يُوجَد حِسَابٌ مُسَجَّلٌ- بِالْفِعْلِ- بِهَذَا اَلْبَرِيدِ اَلْإِلِكْتِرُونِيِّ، اَلرَّجَاءُ تَسْجِيلَ اَلدُّخُولِ.',
         );
-      } else if (e.code == "netword-request-failed") {
-        throw CustomException(
-          message: "تَأَكَّدَ مِنْ اَلِاتِّصَالِ بِالْإِنْتَرْنِت.",
-        );
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(message: checkNetworkMsg);
       } else {
-        throw CustomException(
-          message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.',
-        );
+        throw CustomException(message: failToCreateAccountMsg);
       }
     } catch (e) {
       log(
         "Exception in FirebaseAuthService.createUserWithEmailAndPassword :- $e",
       );
-      throw CustomException(
-        message: 'فَشِلَ إِنْشَاءَ اَلْحِسَابِ، حَاوَلَ مَرَّةً أُخْرَى.',
-      );
+      throw CustomException(message: failToCreateAccountMsg);
     }
   }
 
@@ -75,10 +73,8 @@ class FirebaseAuthService {
         throw CustomException(
           message: 'الرقم السري او البريد الالكتروني غير صحيح.',
         );
-      } else if (e.code == "netword-request-failed") {
-        throw CustomException(
-          message: "تَأَكَّدَ مِنْ اَلِاتِّصَالِ بِالْإِنْتَرْنِت.",
-        );
+      } else if (e.code == 'network-request-failed') {
+        throw CustomException(message: checkNetworkMsg);
       } else {
         throw CustomException(
           message: "لقد حدث خطا ما, الرجاء المحاوله مره اخري",
