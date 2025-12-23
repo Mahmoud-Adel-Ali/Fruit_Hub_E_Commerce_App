@@ -5,25 +5,25 @@ import 'package:fruit_hub_e_commerce_app/core/widgets/toast_helper.dart';
 import '../../../../../core/services/service_locator.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_progress_hub.dart';
 import '../../../../auth/domain/repos/auth_repo.dart';
 import '../../../../auth/presentation/cubits/signout_cubit/signout_cubit.dart';
 import '../../../../auth/presentation/views/signin_view.dart';
+import 'signout_dialog_buttons.dart';
 
-Future<void> logoutDialog(BuildContext context) {
+Future<void> signoutDialog(BuildContext context) {
   return showDialog(
     context: context,
     barrierDismissible: false,
     builder: (_) => BlocProvider<SignoutCubit>(
       create: (context) => SignoutCubit(getit<AuthRepo>()),
-      child: const LogoutDialogBody(),
+      child: const SignoutDialogBody(),
     ),
   );
 }
 
-class LogoutDialogBody extends StatelessWidget {
-  const LogoutDialogBody({super.key});
+class SignoutDialogBody extends StatelessWidget {
+  const SignoutDialogBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,55 +57,19 @@ class LogoutDialogBody extends StatelessWidget {
                     child: const Icon(Icons.close, size: 22),
                   ),
                 ),
-
                 const SizedBox(height: 8),
-
-                /// Title
                 Text(
                   'هل ترغب في تسجيل الخروج ؟',
                   textAlign: TextAlign.center,
                   style: AppTextStyles.bold19.copyWith(color: AppColors.black),
                 ),
-
                 const SizedBox(height: 24),
-                /// Buttons
                 SignoutDialogButtons(),
               ],
             ),
           ),
         ),
       ),
-    );
-  }
-}
-
-class SignoutDialogButtons extends StatelessWidget {
-  const SignoutDialogButtons({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomButton(
-            text: 'تأكيد',
-            color: AppColors.primaryColor,
-            onPressed: () {
-              context.read<SignoutCubit>().signOut();
-            },
-          ),
-        ),
-        const SizedBox(width: 12),
-        Expanded(
-          child: CustomButton(
-            text: 'لا أرغب',
-            color: AppColors.white,
-            textColor: AppColors.primaryColor,
-            borderColor: AppColors.primaryColor,
-            onPressed: () => Navigator.pop(context),
-          ),
-        ),
-      ],
     );
   }
 }

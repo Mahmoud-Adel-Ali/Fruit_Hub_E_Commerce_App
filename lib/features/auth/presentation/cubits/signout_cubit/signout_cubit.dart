@@ -12,7 +12,7 @@ class SignoutCubit extends Cubit<SignoutState> {
 
   void signOut() async {
     emit(SignoutLoading());
-    final result = await authRepo.logout();
+    final result = await authRepo.signout();
     if (result) {
       emit(SignoutSuccess());
     } else {

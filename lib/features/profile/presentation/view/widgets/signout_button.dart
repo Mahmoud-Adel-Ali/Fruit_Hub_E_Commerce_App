@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
-import 'logout_dialog.dart';
+import 'signout_dialog.dart';
 
-class LogoutButton extends StatelessWidget {
-  const LogoutButton({super.key});
+class SignoutButton extends StatelessWidget {
+  const SignoutButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class LogoutButton extends StatelessWidget {
         elevation: 0,
         autofocus: false,
         highlightElevation: 0,
-        onPressed: () => logoutDialog(context),
+        onPressed: () => signoutDialog(context),
         color: AppColors.green50,
         shape: RoundedRectangleBorder(
           // borderRadius: BorderRadius.circular(8.0),

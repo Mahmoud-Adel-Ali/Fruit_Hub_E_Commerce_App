@@ -26,5 +26,5 @@ abstract class AuthRepo {
 
   Future saveUserData({required UserEntity user});
 
-  Future<bool> logout();
+  Future<bool> signout();
 }
