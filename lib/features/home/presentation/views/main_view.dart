@@ -6,6 +6,7 @@ import '../../../../core/cubits/products/products_cubit.dart';
 import '../../../../core/repos/products_repo/products_repo.dart';
 import '../../../../core/services/service_locator.dart';
 import '../../../cart/presentation/views/cart_view.dart';
+import '../../../profile/presentation/view/profile_view.dart';
 import 'home_view.dart';
 import 'products_view.dart';
 import 'widgets/custom_bottom_navigation_bar.dart';
@@ -63,7 +64,7 @@ class _MainViewBodyState extends State<MainViewBody> {
           const HomeView(), // Home View
           const ProductsView(), // Products View
           const CartView(), // Cart View
-          const HomeView(), // Profile View
+          const ProfileView(), // Profile View
         ],
       ),
       // custom bottom navigation bar
