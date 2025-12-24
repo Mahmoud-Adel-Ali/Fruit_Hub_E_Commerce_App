@@ -28,6 +28,8 @@ class Assets {
 
   static const String imagesFacebookIcon = "assets/images/facebook_icon.svg";
 
+  static const String imagesFavoriteIcon = "assets/images/favorite_icon.svg";
+
   static const String imagesFilterIcon = "assets/images/filter_icon.svg";
 
   static const String imagesFilterIcon2 = "assets/images/filter_icon_2.svg";
@@ -42,9 +44,15 @@ class Assets {
 
   static const String imagesInActiveProfileIcon = "assets/images/in_active_profile_icon.svg";
 
+  static const String imagesLanguageIcon = "assets/images/language_icon.svg";
+
   static const String imagesLogo = "assets/images/logo.svg";
 
   static const String imagesNotificationIcon = "assets/images/notification_icon.svg";
+
+  static const String imagesOrdersIcon = "assets/images/orders_icon.svg";
+
+  static const String imagesOurInfoIcon = "assets/images/our_info_icon.svg";
 
   static const String imagesPageViewItem1BackgroundImage = "assets/images/page_view_item_1_background_image.svg";
 
@@ -54,9 +62,13 @@ class Assets {
 
   static const String imagesPageViewItem2Image = "assets/images/page_view_item_2_image.svg";
 
+  static const String imagesPaymentCartIcon = "assets/images/payment_cart_icon.svg";
+
   static const String imagesPlant = "assets/images/plant.svg";
 
   static const String imagesProfileImage = "assets/images/profile_image.png";
+
+  static const String imagesProfileModeIcon = "assets/images/profile_mode_icon.svg";
 
   static const String imagesRemoveIcon = "assets/images/remove_icon.svg";
 
@@ -67,5 +79,7 @@ class Assets {
   static const String imagesTestFeatureFruitImage = "assets/images/test_feature_fruit_image.png";
 
   static const String imagesTestFruitImage = "assets/images/test_fruit_image.png";
+
+  static const String imagesUserIcon = "assets/images/user_icon.svg";
 }
 
