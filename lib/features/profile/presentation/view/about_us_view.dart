@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_app_bar.dart';
+import 'widgets/about_us_view_body.dart';
 
 class AboutUsView extends StatelessWidget {
   const AboutUsView({super.key});
@@ -10,6 +11,7 @@ class AboutUsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: customAppBar(context, title: 'من نحن', showNotifications: false),
+      body: const AboutUsViewBody(),
     );
   }
 }
