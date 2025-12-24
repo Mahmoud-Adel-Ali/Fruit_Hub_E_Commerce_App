@@ -7,6 +7,7 @@ import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/home/presentation/views/main_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
 import '../../features/profile/presentation/view/about_us_view.dart';
+import '../../features/profile/presentation/view/edit_profile_view.dart';
 import '../../features/splash/presentation/views/splash_view.dart';
 
 Route<dynamic> onGenerateRoutes(RouteSettings settings) {
@@ -26,8 +27,12 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case CheckoutView.routeName:
       return MaterialPageRoute(builder: (_) => const CheckoutView());
 
+    //* This Views is from Profile Feature
     case AboutUsView.routeName:
       return MaterialPageRoute(builder: (_) => const AboutUsView());
+    case EditProfileView.routeName:
+      return MaterialPageRoute(builder: (_) => const EditProfileView());
+
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

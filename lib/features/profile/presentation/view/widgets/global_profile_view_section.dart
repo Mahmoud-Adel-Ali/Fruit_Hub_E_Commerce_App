@@ -5,6 +5,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_toggel_widget.dart';
+import '../edit_profile_view.dart';
 import 'profile_button.dart';
 
 class GlobalProfileViewSection extends StatelessWidget {
@@ -25,7 +26,9 @@ class GlobalProfileViewSection extends StatelessWidget {
           ProfileButton(
             svg: Assets.imagesUserIcon,
             title: 'الملف الشخصي',
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, EditProfileView.routeName);
+            },
           ),
           ProfileButton(
             svg: Assets.imagesOrdersIcon,
