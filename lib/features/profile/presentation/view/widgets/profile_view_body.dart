@@ -9,13 +9,15 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      spacing: 16,
-      children: [
-        ProfileViewHeader(),
-        GlobalProfileViewSection(),
-        AboutUsProfileViewSection(),
-      ],
+    return SingleChildScrollView(
+      child: const Column(
+        spacing: 16,
+        children: [
+          ProfileViewHeader(),
+          GlobalProfileViewSection(),
+          AboutUsProfileViewSection(),
+        ],
+      ),
     );
   }
 }
