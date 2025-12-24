@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'about_us_profile_view_section.dart';
 import 'global_profile_view_section.dart';
 import 'profile_view_header.dart';
 
@@ -10,7 +11,11 @@ class ProfileViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       spacing: 16,
-      children: [ProfileViewHeader(), GlobalProfileViewSection()],
+      children: [
+        ProfileViewHeader(),
+        GlobalProfileViewSection(),
+        AboutUsProfileViewSection(),
+      ],
     );
   }
 }
