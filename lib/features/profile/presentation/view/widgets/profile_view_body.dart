@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'global_profile_view_section.dart';
 import 'profile_view_header.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -7,11 +8,9 @@ class ProfileViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ProfileViewHeader(),
-        //
-      ],
+    return const Column(
+      spacing: 16,
+      children: [ProfileViewHeader(), GlobalProfileViewSection()],
     );
   }
 }
