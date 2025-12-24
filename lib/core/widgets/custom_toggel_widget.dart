@@ -10,7 +10,7 @@ class CustomToggleWidget extends StatefulWidget {
 
   const CustomToggleWidget({
     super.key,
-    required this.title,
+    this.title = '',
     required this.initialValue,
     required this.onChanged,
   });
@@ -45,11 +45,12 @@ class _CustomToggleWidgetState extends State<CustomToggleWidget> {
             widget.onChanged(newValue);
           },
         ),
-        const SizedBox(width: 8),
-        Text(
-          widget.title,
-          style: AppTextStyles.semiBold16.copyWith(color: AppColors.grey),
-        ),
+        if (widget.title.isNotEmpty) const SizedBox(width: 8),
+        if (widget.title.isNotEmpty)
+          Text(
+            widget.title,
+            style: AppTextStyles.semiBold16.copyWith(color: AppColors.grey),
+          ),
       ],
     );
   }

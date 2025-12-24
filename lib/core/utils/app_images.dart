@@ -62,7 +62,7 @@ class Assets {
 
   static const String imagesPageViewItem2Image = "assets/images/page_view_item_2_image.svg";
 
-  static const String imagesPaymentCartIcon = "assets/images/payment_cart_icon.svg";
+  static const String imagesPaymentCardIcon = "assets/images/payment_card_icon.svg";
 
   static const String imagesPlant = "assets/images/plant.svg";
 
