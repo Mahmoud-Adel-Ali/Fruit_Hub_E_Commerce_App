@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:fruit_hub_e_commerce_app/core/widgets/custom_password_text_form_field.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/helper_functions/get_user_data.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../../../../../core/widgets/custom_button.dart';
 import '../../../../../core/widgets/custom_email_text_form_field.dart';
 import '../../../../../core/widgets/custom_name_text_form_field.dart';
+import '../../../../../core/widgets/custom_password_text_form_field.dart';
 import '../../../../../core/widgets/toast_helper.dart';
 
 class EditProfileViewBody extends StatefulWidget {
@@ -38,13 +39,14 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Form(
+        key: formKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: kHorizontalPadding,
             vertical: 16,
           ),
           child: Column(
-            spacing: 8,
+            spacing: 12,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('المعلومات الشخصيه', style: AppTextStyles.semiBold16),
@@ -63,6 +65,10 @@ class _EditProfileViewBodyState extends State<EditProfileViewBody> {
                 controller: confirmNewPasswordController,
                 hintText: 'تأكيد كلمة المرور الجديده',
               ),
+
+              const SizedBox(height: 128),
+              CustomButton(text: 'حفظ التغييرات', onPressed: () {}),
+              const SizedBox(height: 24),
             ],
           ),
         ),
