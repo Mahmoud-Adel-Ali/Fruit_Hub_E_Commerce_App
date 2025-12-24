@@ -175,4 +175,10 @@ class AuthRepoImpl implements AuthRepo {
 
     await getit.get<CacheHelper>().setString(kUserData, jsonData);
   }
+
+  @override
+  Future<void> logout() async {
+    await firebaseAuthService.signOut();
+    await getit.get<CacheHelper>().remove(kUserData);
+  }
 }
