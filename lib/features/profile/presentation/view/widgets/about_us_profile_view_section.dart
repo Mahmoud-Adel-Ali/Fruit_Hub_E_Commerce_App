@@ -4,6 +4,7 @@ import '../../../../../constants.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text_styles.dart';
+import '../about_us_view.dart';
 import 'profile_button.dart';
 
 class AboutUsProfileViewSection extends StatelessWidget {
@@ -24,7 +25,9 @@ class AboutUsProfileViewSection extends StatelessWidget {
           ProfileButton(
             svg: Assets.imagesOurInfoIcon,
             title: 'من نحن', // 'About Us'
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, AboutUsView.routeName);
+            },
           ),
         ],
       ),
