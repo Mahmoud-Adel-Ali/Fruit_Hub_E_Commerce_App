@@ -7,7 +7,7 @@ import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text_styles.dart';
 import '../../../../../core/widgets/custom_progress_hub.dart';
 import '../../../../auth/domain/repos/auth_repo.dart';
-import '../../../../auth/presentation/cubits/signout_cubit/signout_cubit.dart';
+import '../../../../../core/cubits/signout_cubit/signout_cubit.dart';
 import '../../../../auth/presentation/views/signin_view.dart';
 import 'signout_dialog_buttons.dart';
 

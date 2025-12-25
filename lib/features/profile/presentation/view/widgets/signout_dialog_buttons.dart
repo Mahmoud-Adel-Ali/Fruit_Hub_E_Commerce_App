@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/widgets/custom_button.dart';
-import '../../../../auth/presentation/cubits/signout_cubit/signout_cubit.dart';
+import '../../../../../core/cubits/signout_cubit/signout_cubit.dart';
 
 class SignoutDialogButtons extends StatelessWidget {
   const SignoutDialogButtons({super.key});

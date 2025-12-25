@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
-import '../../../domain/repos/auth_repo.dart';
+import '../../../features/auth/domain/repos/auth_repo.dart';
 
 part 'signout_state.dart';
 
