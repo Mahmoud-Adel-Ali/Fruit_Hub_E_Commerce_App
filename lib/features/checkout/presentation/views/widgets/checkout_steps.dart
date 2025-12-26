@@ -8,7 +8,8 @@ List<String> steps = [
 ];
 
 class CheckoutSteps extends StatelessWidget {
-  const CheckoutSteps({super.key});
+  const CheckoutSteps({super.key, required this.currentStep});
+  final int currentStep;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class CheckoutSteps extends StatelessWidget {
           child: StepItem(
             text: steps[index],
             index: index,
-            isActive: index == 0,
+            isActive: index <= currentStep,
           ),
         );
       }),
