@@ -42,7 +42,10 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
       child: Column(
         children: [
           SizedBox(height: 20),
-          CheckoutSteps(currentStep: currentStep),
+          CheckoutSteps(
+            currentStep: currentStep,
+            pageController: _pageController,
+          ),
           Expanded(
             child: CheckoutStepsPageView(pageController: _pageController),
           ),

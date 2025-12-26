@@ -8,8 +8,13 @@ List<String> steps = [
 ];
 
 class CheckoutSteps extends StatelessWidget {
-  const CheckoutSteps({super.key, required this.currentStep});
+  const CheckoutSteps({
+    super.key,
+    required this.currentStep,
+    required this.pageController,
+  });
   final int currentStep;
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +25,13 @@ class CheckoutSteps extends StatelessWidget {
             text: steps[index],
             index: index,
             isActive: index <= currentStep,
+            onTap: () {
+              pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
           ),
         );
       }),
