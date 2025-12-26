@@ -48,7 +48,7 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           ),
           SizedBox(height: 16),
           CustomButton(
-            text: 'التالي',
+            text: getNextButtonText(currentStep),
             onPressed: () {
               if (currentStep < steps.length - 1) {
                 _pageController.nextPage(
@@ -62,5 +62,18 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
         ],
       ),
     );
+  }
+
+  String getNextButtonText(int currentStep) {
+    switch (currentStep) {
+      case 0:
+        return 'التالي';
+      case 1:
+        return 'التالي';
+      case 2:
+        return 'أدفع بواسطه PayPal';
+      default:
+        return 'التالي';
+    }
   }
 }
