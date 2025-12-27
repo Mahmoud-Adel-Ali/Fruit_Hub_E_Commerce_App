@@ -23,7 +23,11 @@ class PaymentButton extends StatelessWidget {
               child: CustomButton(
                 text: "الدفع $totalPrice جنيه",
                 onPressed: () {
-                  Navigator.pushNamed(context, CheckoutView.routeName);
+                  Navigator.pushNamed(
+                    context,
+                    CheckoutView.routeName,
+                    arguments: context.read<CartCubit>().cart.cartItems,
+                  );
                 },
               ),
             ),
