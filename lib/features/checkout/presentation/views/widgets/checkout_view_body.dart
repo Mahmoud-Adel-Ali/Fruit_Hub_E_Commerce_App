@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_e_commerce_app/core/widgets/custom_button.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../constants.dart';
+import '../../../../../core/widgets/toast_helper.dart';
+import '../../../domain/entities/order_entity.dart';
 import 'checkout_steps.dart';
 import 'checkout_steps_page_view.dart';
 
@@ -53,6 +56,13 @@ class _CheckoutViewBodyState extends State<CheckoutViewBody> {
           CustomButton(
             text: getNextButtonText(currentStep),
             onPressed: () {
+              var order = context.read<OrderEntity>();
+              var payWithCash = order.payWithCash;
+              if (payWithCash == null) {
+                ToastHelper.showErrorToast('يرجى اختيار طريقة الدفع');
+                return;
+              }
+
               if (currentStep < steps.length - 1) {
                 _pageController.nextPage(
                   duration: const Duration(milliseconds: 300),

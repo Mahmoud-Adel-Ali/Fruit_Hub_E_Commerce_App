@@ -12,7 +12,7 @@ class ShippingSection extends StatefulWidget {
 }
 
 class _ShippingSectionState extends State<ShippingSection> {
-  bool _isCashOnDeliverySelected = true;
+  bool? _payWithCash;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +24,9 @@ class _ShippingSectionState extends State<ShippingSection> {
           title: 'الدفع عند الاستلام',
           subtitle: 'التسليم من المكان',
           trillingText: '${price + 40} جنيه',
-          isSelected: _isCashOnDeliverySelected,
+          isSelected: _payWithCash == true,
           onTap: () {
-            _isCashOnDeliverySelected = true;
+            _payWithCash = true;
             setState(() {});
           },
         ),
@@ -36,9 +36,9 @@ class _ShippingSectionState extends State<ShippingSection> {
           subtitle: 'بطاقة الائتمان أو الخصم',
           trillingText: '$price جنيه',
           // trillingText: 'مجاني',
-          isSelected: !_isCashOnDeliverySelected,
+          isSelected: _payWithCash == false,
           onTap: () {
-            _isCashOnDeliverySelected = false;
+            _payWithCash = false;
             setState(() {});
           },
         ),
