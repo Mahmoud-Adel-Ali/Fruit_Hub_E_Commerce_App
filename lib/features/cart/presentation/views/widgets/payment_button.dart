@@ -26,7 +26,7 @@ class PaymentButton extends StatelessWidget {
                   Navigator.pushNamed(
                     context,
                     CheckoutView.routeName,
-                    arguments: context.read<CartCubit>().cart.cartItems,
+                    arguments: context.read<CartCubit>().cart,
                   );
                 },
               ),

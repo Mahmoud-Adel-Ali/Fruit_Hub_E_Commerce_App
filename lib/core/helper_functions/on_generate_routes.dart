@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/views/signin_view.dart';
 import '../../features/auth/presentation/views/signup_view.dart';
 import '../../features/best_selling_fruits/presentation/views/best_selling_view.dart';
-import '../../features/cart/domain/entities/cart_item_entity.dart';
+import '../../features/cart/domain/entities/cart_entity.dart';
 import '../../features/checkout/presentation/views/checkout_view.dart';
 import '../../features/home/presentation/views/main_view.dart';
 import '../../features/on_boarding/presentation/views/on_boarding_view.dart';
@@ -26,9 +26,9 @@ Route<dynamic> onGenerateRoutes(RouteSettings settings) {
     case BestSellingView.routeName:
       return MaterialPageRoute(builder: (_) => const BestSellingView());
     case CheckoutView.routeName:
-      var cartItems = settings.arguments as List<CartItemEntity>;
+      var cartEntity = settings.arguments as CartEntity;
       return MaterialPageRoute(
-        builder: (_) => CheckoutView(cartItems: cartItems),
+        builder: (_) => CheckoutView(cartEntity: cartEntity),
       );
 
     //* This Views is from Profile Feature

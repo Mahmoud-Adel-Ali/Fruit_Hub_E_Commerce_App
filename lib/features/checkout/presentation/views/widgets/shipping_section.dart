@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../domain/entities/order_entity.dart';
 import 'shipping_item.dart';
 
 class ShippingSection extends StatefulWidget {
@@ -14,13 +16,14 @@ class _ShippingSectionState extends State<ShippingSection> {
 
   @override
   Widget build(BuildContext context) {
+    var price = context.read<OrderEntity>().cartEntity.calcTotalPrice();
     return Column(
       children: [
         SizedBox(height: 16),
         ShippingItem(
           title: 'الدفع عند الاستلام',
           subtitle: 'التسليم من المكان',
-          trillingText: '40 جنيه',
+          trillingText: '${price + 40} جنيه',
           isSelected: _isCashOnDeliverySelected,
           onTap: () {
             _isCashOnDeliverySelected = true;
@@ -31,7 +34,7 @@ class _ShippingSectionState extends State<ShippingSection> {
         ShippingItem(
           title: 'الدفع عبر الإنترنت',
           subtitle: 'بطاقة الائتمان أو الخصم',
-          trillingText: '40 جنيه',
+          trillingText: '$price جنيه',
           // trillingText: 'مجاني',
           isSelected: !_isCashOnDeliverySelected,
           onTap: () {
